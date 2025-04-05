@@ -1,11 +1,14 @@
 #pragma once 
 #include <memory>
 #include <vector>
-#include "Entidad.hpp"
+#include "Empresa.hpp"
 
-class Empleado; //dsp cambio a empleado.h
+
+
+class Empleado;  //incluyo empleado 
+
 //incluse la clase empleasdo
-class Departamento: public EntidadOrganizativa //estabien ? PREGGGGGG
+class Departamento//estabien ? PREGGGGGG
 {
 private:
     string nombre;
@@ -23,12 +26,6 @@ public:
     vector<shared_ptr<Empleado>> getEmployees();
     bool contratarEmpleado(shared_ptr<Empleado> emple);
     bool despedirEmpleado(shared_ptr<Empleado> emple);
-
-
-    //metodos de la abstracta
-    string getNombre()override;
-    void agregar_subentidades(shared_ptr<EntidadOrganizativa> subentidad) override;
-    int contar_subentidades()override;
 
     ~Departamento();
 };
