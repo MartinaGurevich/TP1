@@ -8,7 +8,7 @@
 class Empleado;  //incluyo empleado 
 
 //incluse la clase empleasdo
-class Departamento//estabien ? PREGGGGGG
+class Departamento_//estabien ? PREGGGGGG
 {
 private:
     string nombre;
@@ -17,7 +17,7 @@ private:
 
     
 public:
-    Departamento(string& nombre, string& ubicacion);
+    Departamento_(string& nombre, string& ubicacion);
 
     //string getNombre();
     string getUbicacion();
@@ -27,7 +27,7 @@ public:
     bool contratarEmpleado(shared_ptr<Empleado> emple);
     bool despedirEmpleado(shared_ptr<Empleado> emple);
 
-    ~Departamento();
+    ~Departamento_();
 };
 
 
