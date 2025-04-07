@@ -6,7 +6,7 @@ using namespace std;
 
 class EntidadOrganizativa
 {
-private:
+protected: //para q los atributos privados puedan usarse en las derivadas 
     string Nombre;
     vector<shared_ptr<EntidadOrganizativa>> subentidades;
 

@@ -19,7 +19,7 @@ private:
 public:
     Departamento_(string& nombre, string& ubicacion);
 
-    //string getNombre();
+    string getNombre();
     string getUbicacion();
 
     static int  contarEmpleados(); //VER ESTOOO
