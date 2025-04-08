@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
     //creo empresa
-    shared_ptr<Empresa> MiEmpresa= make_shared<Empresa>("Antonio SRL", "Gral Rod 123");
+    unique_ptr<Empresa> MiEmpresa= make_unique<Empresa>("Antonio SRL", "Gral Rod 123");
 
     //nombre y direcc
 

@@ -16,7 +16,7 @@ using namespace std;
 class Empresa: public EntidadOrganizativa
 {
 private: //CAMBIO LAS COMPOSICIONES A UNIQUE Y PARA COPIARLO HAGOP MOVE 
-    vector<shared_ptr<Departamento_>> departamentos; //empresa es duena de departamento, si se elimina la empress los departamentos tambuien se eliminann, TIENE QUE IR EN PRIVATE?
+    vector<unique_ptr<Departamento_>> departamentos; //empresa es duena de departamento, si se elimina la empress los departamentos tambuien se eliminann, TIENE QUE IR EN PRIVATE?
 public:
     Empresa(const string& Nombre, const string& direccion); //fijarse si lo pongo const string&
     
@@ -25,14 +25,14 @@ public:
     string getDireccion();  //VER ESTO
    
     //metodos de la empresa
-    shared_ptr<Departamento_> getDepByName(const string& Nombre);
+    Departamento_* getDepByName(const string& Nombre);
     vector<string> getDepNames();
 
     //agrego departamento 
-    string agregar_departamento(shared_ptr<Departamento_> depa);
+    string agregar_departamento(unique_ptr<Departamento_> depa);
 
     //metodos de la abtracta LOS TENGO QUE DESHABILITAR
-    void agregar_subentidades(shared_ptr<EntidadOrganizativa> subentidad) override; // = delete;
+    void agregar_subentidades(unique_ptr<EntidadOrganizativa> subentidad) override; // = delete;
     int contar_subentidades() override;//  = delete;
 
 

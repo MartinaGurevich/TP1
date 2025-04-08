@@ -7,16 +7,13 @@
 using namespace std;
 
 
-
-//class Empleado;  //incluyo empleado 
-
 //incluse la clase empleasdo
 class Departamento_//estabien ? PREGGGGGG
 {
 private:
     string nombre;
     string ubicacion ;
-    vector<shared_ptr<Empleado_>> empleados;
+    vector<unique_ptr<Empleado_>> empleados;
     static int cantEmpleadosDepts;
     
 public:
@@ -25,12 +22,12 @@ public:
     string getNombre();
     string getUbicacion();
 
-    static int  contarEmpleados(); //VER ESTOOO
-    vector<shared_ptr<Empleado_>> getEmployees();
-    bool contratarEmpleado(shared_ptr<Empleado_> emple);
-    bool despedirEmpleado(shared_ptr<Empleado_> emple);
+    static int  contarEmpleados(); 
+    vector<Empleado_*> getEmployees();
+    bool contratarEmpleado(unique_ptr<Empleado_> emple);
+    bool despedirEmpleado(Empleado_* emple); //porq quiero solo el nombre por referencia 
 
-    ~Departamento_();
+    ~Departamento_()= default;
 };
 
 

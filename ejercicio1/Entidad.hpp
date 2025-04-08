@@ -8,16 +8,17 @@ class EntidadOrganizativa
 {
 protected: //para q los atributos privados puedan usarse en las derivadas 
    
-    vector<shared_ptr<EntidadOrganizativa>> subentidades;
+    vector<unique_ptr<EntidadOrganizativa>> subentidades;//saco punterps
 
 public:
+
     EntidadOrganizativa(string nombre);
     
     string Nombre;
 
     virtual string getNombre()=0; //LO SACO MARIANO
 
-    virtual void agregar_subentidades(shared_ptr<EntidadOrganizativa> subentidad) = 0; //BORRAR LOS PUROS Y DEFINIRLOS EN EL CONSTRUCTOR 
+    virtual void agregar_subentidades(unique_ptr<EntidadOrganizativa> subentidad) = 0; //BORRAR LOS PUROS Y DEFINIRLOS EN EL CONSTRUCTOR 
     virtual int contar_subentidades()= 0; //IDEM 
 
     virtual ~EntidadOrganizativa()= default;
