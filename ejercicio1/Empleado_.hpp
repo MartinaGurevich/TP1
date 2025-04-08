@@ -21,7 +21,7 @@ public:
     bool updateSalario(float salario);
     float getSalario();
 
-    ~Empleado_();
+    ~Empleado_()=default;
 };
 
 

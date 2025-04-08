@@ -38,7 +38,7 @@ string Empresa:: agregar_departamento(unique_ptr< Departamento_> depa ){
         }
     }
     departamentos.push_back(move(depa));  //lo agrego al vector de departamentos 
-    return  "Departamento agregado con exito.";
+    return  Nombre;
 }
 
 //metodos de la clase abstracta

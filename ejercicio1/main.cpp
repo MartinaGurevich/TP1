@@ -1,29 +1,23 @@
 #include "Empresa.hpp"
+#include "Departamento_.hpp"
+#include "Empleado_.hpp"
+#include <memory>
 #include <iostream>
 using namespace std;
 
 int main(){
     //creo empresa
-    unique_ptr<Empresa> MiEmpresa= make_unique<Empresa>("Antonio SRL", "Gral Rod 123");
+    Empresa MiEmpresa("Antonio SRL", "Gral Rod 123");
+    cout<<"Nombre de la empresa:"<<MiEmpresa.getNombre()<< endl;
+    cout<<"direcc de la empresa:"<<MiEmpresa.getDireccion()<< endl;
 
-    //nombre y direcc
+    
+    //creo departamento con unique y lo agrego
+    auto dep1= make_unique <Departamento_> ("Recursos Humanos", "Piso 1");
+    //lo agregoa  al empresa
+    string nuevodep= MiEmpresa.agregar_departamento(move(dep1));
 
-    cout<<"Nombre de la empresa:"<< MiEmpresa-> getNombre()<< endl;
-    cout<<"Direccion de la empresa:"<< MiEmpresa-> getDireccion()<< endl;
- 
-    //contar subentDEMUESTRO QUE NO SE PUEDE.
-    cout<<"Cant de subentidades:"<< MiEmpresa-> contar_subentidades()<< endl;
-    cout<<"--> La Empresa no incluye subentidades. " <<endl;
-
-
-
-    //agregar subent DEMUESTRO QUE NO SE PUEDE.
-    MiEmpresa-> agregar_subentidades(MiEmpresa);
-    cout<<"Subentidades luego de agregar una:"<< MiEmpresa-> contar_subentidades()<< endl;
-    cout<<"--> La Empresa no incluye subentidades. No es un metodo posible de utilizar en mi Clase Empresa " <<endl;
-
-
-     //seguir porbando con depa
+    cout<<"El departamento "<<nuevodep<<" fue agregado a la empresa"<<endl;
     return 0;
 
 }
