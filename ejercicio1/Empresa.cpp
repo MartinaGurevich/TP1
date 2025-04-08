@@ -29,6 +29,17 @@ vector<string> Empresa:: getDepNames(){
     return nombres; //devuoevo nombres en lista de los dep
 }
 
+//agrego departamento 
+string Empresa:: agregar_departamento(shared_ptr< Departamento_> depa ){
+    //valido q no se hagan duplicados
+    for (auto& depa_existe: departamentos){
+        if(depa_existe->getNombre()== depa-> getNombre()){
+            return; //ya existe la subent
+        }
+    }
+    departamentos.push_back(depa);  //lo agrego al vector de departamentos 
+}
+
 //metodos de la clase abstracta
 
 void Empresa:: agregar_subentidades(shared_ptr<EntidadOrganizativa> subent){ 

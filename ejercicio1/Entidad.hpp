@@ -14,14 +14,17 @@ public:
     EntidadOrganizativa(string nombre);
     
     string Nombre;
-    
+
     virtual string getNombre()=0; //LO SACO MARIANO
 
-    virtual void agregar_subentidades(shared_ptr<EntidadOrganizativa> subentidad) = 0;
-    virtual int contar_subentidades()= 0;
+    virtual void agregar_subentidades(shared_ptr<EntidadOrganizativa> subentidad) = 0; //BORRAR LOS PUROS Y DEFINIRLOS EN EL CONSTRUCTOR 
+    virtual int contar_subentidades()= 0; //IDEM 
 
     virtual ~EntidadOrganizativa()= default;
 };
+
+
+//TODO UNIQUE USO
 
 
 
