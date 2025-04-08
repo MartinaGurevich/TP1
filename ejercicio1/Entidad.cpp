@@ -4,3 +4,4 @@
 EntidadOrganizativa:: EntidadOrganizativa(string nombre): Nombre(nombre){}
 
 string EntidadOrganizativa:: getNombre(){ return Nombre;}
+

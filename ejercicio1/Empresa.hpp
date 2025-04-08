@@ -17,15 +17,15 @@ class Empresa: public EntidadOrganizativa
 {
 private:
     //string nombre; //usar?
-    string direccion;
-    vector<shared_ptr<Departamento_>> departamentos; //empresa es duena de departamento, si se elimina la empress los departamentos tambuien se eliminann
+    string direccion; //se pone en la parte de public?
+    vector<shared_ptr<Departamento_>> departamentos; //empresa es duena de departamento, si se elimina la empress los departamentos tambuien se eliminann, TIENE QUE IR EN PRIVATE?
 
 public:
     Empresa(const string& Nombre, const string& direccion); //fijarse si lo pongo const string&
 
     string getNombre() override;
-    string getDireccion();
-
+    string getDireccion();  //VER ESTO
+   
     //metodos de la empresa
     shared_ptr<Departamento_> getDepByName(const string& Nombre);
     vector<string> getDepNames();
@@ -35,6 +35,6 @@ public:
     int contar_subentidades() override;
 
 
-    ~Empresa();
+    ~Empresa()= default;
 };
 

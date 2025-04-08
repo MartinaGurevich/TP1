@@ -13,12 +13,12 @@ protected: //para q los atributos privados puedan usarse en las derivadas
 public:
     EntidadOrganizativa(string nombre);
 
-    virtual string getNombre();
+    virtual string getNombre()=0; //LO SACO MARIANO
 
     virtual void agregar_subentidades(shared_ptr<EntidadOrganizativa> subentidad) = 0;
     virtual int contar_subentidades()= 0;
 
-    virtual ~EntidadOrganizativa();
+    virtual ~EntidadOrganizativa()= default;
 };
 
 

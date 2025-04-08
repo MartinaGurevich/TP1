@@ -19,7 +19,9 @@ public:
     
     int getAntiguedad();
     bool updateSalario(float salario);
-    float getSalario;
+    float getSalario();
 
     ~Empleado_();
 };
+
+

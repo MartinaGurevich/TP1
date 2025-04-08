@@ -13,7 +13,7 @@ class Empresa;
 class CentralRegional: public EntidadOrganizativa
 {
 private:
-    string nombre;
+
     int cantEmpleados;
     vector<shared_ptr<GerenteAlto>> gerentesAlto; //estos dos, implemento su rango en el constructor 
     vector<shared_ptr<Gerentemedio>> gerentesMedio;
@@ -21,7 +21,8 @@ private:
 public:
 
     CentralRegional(string nombre, int cantempleados );
-    vector<string> pais; //en el constructos hago lo de {unique, ordered}. como son strings no hace falta manejo de meemo
+    
+    vector<string> paises; //en el constructos hago lo de {unique, ordered}. como son strings no hace falta manejo de meemo
     
     int getCantEmpleados();
     vector<unique_ptr<Empresa>>& getEmpNames() const; //es unique, lo tengo que tomar por referencia, no por valor
@@ -30,7 +31,7 @@ public:
     
     //metodos virtuales de entidad
 
-    string getNombre() override;
+    //string getNombre() override;
     void agregar_subentidades(shared_ptr<EntidadOrganizativa> subentidad) override;
     int contar_subentidades() override;
 

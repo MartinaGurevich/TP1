@@ -1,9 +1,11 @@
 //deriva de EMPLEADO
-#include "Empleado_.hpp"
 #pragma once
+
 #include <iostream>
 #include <vector>
 #include <memory>
+#include "Empleado_.hpp"
+
 using namespace std;
 
 class manager_: public Empleado_
