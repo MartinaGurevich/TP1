@@ -11,13 +11,23 @@ int main(){
     cout<<"Nombre de la empresa:"<< MiEmpresa-> getNombre()<< endl;
     cout<<"Direccion de la empresa:"<< MiEmpresa-> getDireccion()<< endl;
  
-    //contar subent
+    //contar subentDEMUESTRO QUE NO SE PUEDE.
     cout<<"Cant de subentidades:"<< MiEmpresa-> contar_subentidades()<< endl;
+    cout<<"--> La Empresa no incluye subentidades. " <<endl;
 
-    //agregar subent
+
+
+    //agregar subent DEMUESTRO QUE NO SE PUEDE.
     MiEmpresa-> agregar_subentidades(MiEmpresa);
     cout<<"Subentidades luego de agregar una:"<< MiEmpresa-> contar_subentidades()<< endl;
+    cout<<"--> La Empresa no incluye subentidades. No es un metodo posible de utilizar en mi Clase Empresa " <<endl;
 
+
+     //seguir porbando con depa
     return 0;
 
 }
+
+
+
+//poner los atributos que estan con + en public

@@ -16,13 +16,11 @@ using namespace std;
 class Empresa: public EntidadOrganizativa
 {
 private:
-    //string nombre; //usar?
-    string direccion; //se pone en la parte de public?
     vector<shared_ptr<Departamento_>> departamentos; //empresa es duena de departamento, si se elimina la empress los departamentos tambuien se eliminann, TIENE QUE IR EN PRIVATE?
-
 public:
     Empresa(const string& Nombre, const string& direccion); //fijarse si lo pongo const string&
-
+    
+    string direccion;
     string getNombre() override;
     string getDireccion();  //VER ESTO
    
@@ -30,9 +28,9 @@ public:
     shared_ptr<Departamento_> getDepByName(const string& Nombre);
     vector<string> getDepNames();
 
-    //metodos de la abtracta
-    void agregar_subentidades(shared_ptr<EntidadOrganizativa> subentidad) override;
-    int contar_subentidades() override;
+    //metodos de la abtracta LOS TENGO QUE DESHABILITAR
+    void agregar_subentidades(shared_ptr<EntidadOrganizativa> subentidad) override; // = delete;
+    int contar_subentidades() override;//  = delete;
 
 
     ~Empresa()= default;

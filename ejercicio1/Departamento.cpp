@@ -27,6 +27,7 @@ vector<shared_ptr<Empleado_>> Departamento_:: getEmployees(){
 
 bool Departamento_:: contratarEmpleado(shared_ptr<Empleado_> emple){
     empleados.push_back(emple);
+    return true; // saca el warning 
 }
 
 bool Departamento_:: despedirEmpleado(shared_ptr<Empleado_> emple){

@@ -32,16 +32,19 @@ vector<string> Empresa:: getDepNames(){
 //metodos de la clase abstracta
 
 void Empresa:: agregar_subentidades(shared_ptr<EntidadOrganizativa> subent){ 
-    //valido q no se hagan duplicados
-    for (auto& subent_existe: subentidades){
-        if(subent_existe->getNombre()== subent-> getNombre()){
-            return; //ya existe la subent
-        }
-    }
-    subentidades.push_back(subent); //la agrego xq no existe 
+    // //valido q no se hagan duplicados
+    // for (auto& subent_existe: subentidades){
+    //     if(subent_existe->getNombre()== subent-> getNombre()){
+    //         return; //ya existe la subent
+    //     }
+    // }
+    // subentidades.push_back(subent); //la agrego xq no existe 
+    return;
 }
 
 
 int Empresa:: contar_subentidades(){
-    return subentidades.size(); 
+    //return subentidades.size();
+    return 0; 
+
 }
