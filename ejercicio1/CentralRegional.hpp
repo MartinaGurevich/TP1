@@ -1,41 +1,46 @@
 #pragma once
 #include "Entidad.hpp"
+#include "Empresa.hpp"
+#include "GerenteMedio.hpp"
+#include "GerenteAlto.hpp"
 #include <memory>
 #include <vector>
 #include <string>
+#include <set>//para controlar unicidad de paises 
 
 using namespace std;
-class GerenteAlto;
-class Gerentemedio;
-class Empresa;
-
 
 class CentralRegional: public EntidadOrganizativa
 {
 private:
 
     int cantEmpleados;
-    vector<shared_ptr<GerenteAlto>> gerentesAlto; //estos dos, implemento su rango en el constructor 
-    vector<shared_ptr<Gerentemedio>> gerentesMedio;
+    vector<unique_ptr<GerenteAlto>> gerentesAlto; //estos dos, implemento su rango en el constructor 
+    vector<unique_ptr<GerenteMedio>> gerentesMedio;
     vector<unique_ptr<Empresa>> empresas; //empresasde la central regional. Compuesta por la clase empresa 
 public:
 
-    CentralRegional(string nombre, int cantempleados );
+    CentralRegional(const string& nombre, int cantEmpleados );
     
     vector<string> paises; //en el constructos hago lo de {unique, ordered}. como son strings no hace falta manejo de meemo
-    
+    string agregar_pais(const string& pais);
+
     int getCantEmpleados();
-    vector<unique_ptr<Empresa>>& getEmpNames() const; //es unique, lo tengo que tomar por referencia, no por valor
-    vector<shared_ptr<GerenteAlto>> getGerenteAlto(); //de 1 a 5
-    vector<shared_ptr<Gerentemedio>> getGerentemedio();// de 1 a 20
+    string agregar_GerenteAlto(); //hatsq q sean 5
+    string agregar_GerenteMedio();// hasta q sean 20
+    string agregar_Empresa(); 
+
+
+    vector<string> getEmpNames() const; 
+    vector<GerenteAlto*> getGerenteAlto(); //de 1 a 5
+    vector<GerenteMedio*> getGerentemedio();// de 1 a 20
     
     //metodos virtuales de entidad
-
-    //string getNombre() override;
-    void agregar_subentidades(shared_ptr<EntidadOrganizativa> subentidad) override;
+    void agregar_subentidades(unique_ptr<EntidadOrganizativa> subentidad) override; //aca se gregan las empresas 
     int contar_subentidades() override;
+    string getNombre() override; // VER Q HAGO CON ESTE 
 
-    ~CentralRegional();
+    ~CentralRegional()= default;
 };
 
 
