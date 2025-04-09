@@ -11,14 +11,16 @@ using namespace std;
 class Departamento_//estabien ? PREGGGGGG
 {
 private:
-    string nombre;
-    string ubicacion ;
+
     vector<unique_ptr<Empleado_>> empleados;
     static int cantEmpleadosDepts;
     
 public:
     Departamento_(const string& nombre,const string& ubicacion);
 
+    string nombre;
+    string ubicacion ;
+    
     string getNombre();
     string getUbicacion();
 

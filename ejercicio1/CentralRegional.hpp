@@ -24,7 +24,7 @@ public:
     
     set<string> paises; //en el constructos hago lo de {unique, ordered}. como son strings no hace falta manejo de meemo
     string agregar_pais(const string& pais);
-
+//sacarlo paiis
     int getCantEmpleados();
     string agregar_GerenteAlto(); //hatsq q sean 5
     string agregar_GerenteMedio();// hasta q sean 20
