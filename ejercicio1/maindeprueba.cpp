@@ -17,10 +17,10 @@ int main() {
 
     // Crear empresa y departamento
     auto empresa1 = make_unique<Empresa>("TechCorp", "Av. Libertador 123");
-    auto departamento1 = make_unique<Departamento_>("RRHH", "Piso 1");
+    //auto departamento1 = make_unique<Departamento_>("RRHH", "Piso 1");
 
     // Agregar departamento a empresa
-    cout << empresa1->agregar_departamento(move(departamento1)) << endl;
+    cout << empresa1->agregar_departamento(move(make_unique<Departamento_>("RRHH", "Piso 1"))) << endl; //ASI LO HACE LUCA 
 
     // Agregar empresa a central
     central.agregar_subentidades(move(empresa1));

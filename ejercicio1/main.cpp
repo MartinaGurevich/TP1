@@ -15,8 +15,11 @@ int main(){
     
     //creo departamento con unique y lo agrego
     auto dep1= make_unique <Departamento_> ("Recursos Humanos", "Piso 1");
+
+    
     //lo agregoa  al empresa
     string nuevodep= MiEmpresa.agregar_departamento(move(dep1));
+   // string nuevodep= MiEmpresa.agregar_departamento(make_unique <Departamento_> ("Recursos Humanos", "Piso 1")); ESTO LO HUZO LUCA
 
     cout<<"El departamento "<<nuevodep<<" fue agregado a la empresa"<<endl;
     return 0;
