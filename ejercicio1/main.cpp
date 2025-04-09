@@ -1,6 +1,7 @@
 #include "Empresa.hpp"
 #include "Departamento_.hpp"
 #include "Empleado_.hpp"
+#include "CentralRegional.hpp"
 #include <memory>
 #include <iostream>
 using namespace std;

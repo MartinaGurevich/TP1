@@ -22,13 +22,13 @@ public:
 
     CentralRegional(const string& nombre, int cantEmpleados );
     
-    vector<string> paises; //en el constructos hago lo de {unique, ordered}. como son strings no hace falta manejo de meemo
+    set<string> paises; //en el constructos hago lo de {unique, ordered}. como son strings no hace falta manejo de meemo
     string agregar_pais(const string& pais);
 
     int getCantEmpleados();
     string agregar_GerenteAlto(); //hatsq q sean 5
     string agregar_GerenteMedio();// hasta q sean 20
-    string agregar_Empresa(); 
+    //string agregar_Empresa(); //LO DEJO CON ESTO O USO AGREGARSUBENTIDADES.
 
 
     vector<string> getEmpNames() const; 
