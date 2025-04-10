@@ -1,4 +1,6 @@
 #include "interfazArmas.hpp"
+#include <ostream>
+#include <istream>
 
 class Armascombate: public Armas
 {
@@ -17,7 +19,7 @@ public:
     int getpeso() override;
     string getNombre() override;
     void aumentarDaño() override;
-    string getModelo() override;
+    int getModelo() override;
     string getTipodearma() override;
 
     ~Armascombate()=default;

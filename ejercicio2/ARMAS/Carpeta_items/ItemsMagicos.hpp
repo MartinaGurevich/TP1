@@ -1,4 +1,6 @@
 #include "interfazArmas.hpp"
+#include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -16,15 +18,17 @@ public:
     //metodo virtual puro de esta clase abstracta 
     virtual void aplicarEfectoMagico()=0; //le aplico 
 
-    ItemsMagicos(string nombre, string tipodeArma);
-
+    ItemsMagicos(string nombre, string tipodeArma, int daño, int peso, int modelo);
+    void setdaño(int nuevodaño);
+    int getdaño (); //metodo de la clase abstarcta
+    
     int getpeso() override;
     string getNombre() override;
     void aumentarDaño() override;
-    string getModelo() override;
+    int getModelo() override;
     string getTipodearma() override;
    
-    ~ItemsMagicos()= default;
+    virtual ~ItemsMagicos()= default;
 };
 
 
