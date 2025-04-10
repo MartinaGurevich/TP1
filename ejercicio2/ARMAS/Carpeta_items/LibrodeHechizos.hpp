@@ -1,22 +1,37 @@
 #include "ItemsMagicos.hpp"
 #include <vector>
+#include <map>
+
+using namespace std;
 
 
-
-class LibrodeHechizos
+class LibrodeHechizos: public ItemsMagicos
 {
 private:
-    vector<string> lista_de_hechizos;
+    map<string,int> hechizos; //hechizo y daño
+    int magia; //magia de hechizos
+    string compatibilidad; //con guerrero baja daño
+    string hechizoLanzado; //lo uso en efecto magico
+    int durabilidad; //se gasta dsp de usos 
+
+
     
 public:
-    LibrodeHechizos(/* args */);
-    ~LibrodeHechizos();
+    LibrodeHechizos(string nombre, int daño,string compatibilidad, int modelo);
+
+    bool personaje_compatible(string compatibilidad); //me dice si es mago lo puedo usar, sino le resta daño q hace 
+    int magia_actual();
+    void lanzarHechizo(); //baja la magia
+    void cambiarHechizo();
+    int recargar_magia();
+    int durabilidad_libro(); //se va deteriorando por cada uso
+    int reparar_libro();//lo reparo
+
+    void aplicarEfectoMagico() override; //digo q efecto lance cuando lanzo hechizo baja magia y baja durabilidad
+
+
+
+    ~LibrodeHechizos()= default;
 };
 
-LibrodeHechizos::LibrodeHechizos(/* args */)
-{
-}
 
-LibrodeHechizos::~LibrodeHechizos()
-{
-}

@@ -3,7 +3,7 @@
 class Baston: public ItemsMagicos
 {
 private:
-    int cargasMaximas=500; //cargas maximas uwe se puede recargar el baston
+    int cargasMaximas=50; //cargas maximas uwe se puede recargar el baston
     string efectoespecial;
     string compatibilidad;
     int durabilidad; // cuando  golpea baja la durabilidad del baston tambien

@@ -1,4 +1,4 @@
-#include "interfazArmas.hpp"
+#include "../interfazArmas.hpp"
 #include <ostream>
 #include <iostream>
 
@@ -19,8 +19,8 @@ public:
     virtual void aplicarEfectoMagico()=0; //le aplico 
 
     ItemsMagicos(string nombre, string tipodeArma, int daño, int peso, int modelo);
-    void setdaño(int nuevodaño);
-    int getdaño (); //metodo de la clase abstarcta
+    void setDaño(int nuevodaño);
+    int getDaño (); //metodo de la clase abstarcta
     
     int getpeso() override;
     string getNombre() override;
