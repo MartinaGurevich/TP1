@@ -1,3 +1,4 @@
+#pragma once
 #include "ItemsMagicos.hpp"
 #include <vector>
 #include <map>
@@ -21,8 +22,8 @@ public:
 
     bool personaje_compatible(string compatibilidad); //me dice si es mago lo puedo usar, sino le resta daño q hace 
     int magia_actual();
-    void lanzarHechizo(); //baja la magia
-    void cambiarHechizo();
+    int lanzarHechizo(); //baja la durabeilidad
+    void cambiarHechizo(string nombre); //elijo el hechuzo que quiero
     int recargar_magia();
     int durabilidad_libro(); //se va deteriorando por cada uso
     int reparar_libro();//lo reparo

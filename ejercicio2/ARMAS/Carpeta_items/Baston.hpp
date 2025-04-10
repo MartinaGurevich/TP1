@@ -1,3 +1,4 @@
+#pragma once
 #include "ItemsMagicos.hpp"
 
 class Baston: public ItemsMagicos

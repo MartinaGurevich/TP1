@@ -6,7 +6,13 @@ ItemsMagicos:: ItemsMagicos(string nombre, string tipodeArma,  int daño, int pe
     daño(daño),
     peso(peso),
     modelo(modelo),
-    tipodeArma(tipodeArma){}
+    tipodeArma(tipodeArma) 
+{
+    if(modelo <= 2010) {  //cuadno es mas grande que las nuevas daña mas
+        aumentarDaño();
+        cout<<"Item con experiencia... modelo : "<<modelo<<".Aumenta su daño a:"<<getDaño()<<endl;
+    }
+}
 
 //constructores para metodos de la interfaz
 
@@ -34,12 +40,7 @@ int ItemsMagicos:: getDaño(){
 }
 
 int ItemsMagicos :: getModelo(){
-    if(modelo <= 2010) {  //cuadno es mas grande que las nuevas daña mas
-        aumentarDaño();
-        cout<<"Item con experiencia... modelo : "<<modelo<<" Aumenta su daño a:"<<getDaño();
-        //codiciones tipo si el arma es menor al 2010, daña mas;
-    }
-    return 0; //sino hace un daño normal... 
+    return modelo; 
 }
 
 string ItemsMagicos:: getTipodearma(){
