@@ -4,7 +4,7 @@
 using namespace std;
 
 Amuleto :: Amuleto(string nombre, int daño,string compatibilidad, int modelo): 
-    ItemsMagicos(nombre, "Item magico", daño, 3 , modelo),
+    ItemsMagicos(nombre, "Amuleto", daño, 3 , modelo),
     elemento("tierra"),
     activado(true),
     cargas(5),

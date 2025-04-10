@@ -8,6 +8,8 @@ int main() {
     cout << "===== PRUEBA DE POCIÓN =====\n" << endl;
     Pocion veneno("Poción de veneno", 25, "Mago", 2010);
 
+    cout<<"el arma es: "<<veneno.getTipodearma()<< endl;
+
     // Ver compatibilidad
     veneno.personaje_compatible("Guerrero"); // Debería reducir daño
 

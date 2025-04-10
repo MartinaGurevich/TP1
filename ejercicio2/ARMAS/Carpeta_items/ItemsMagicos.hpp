@@ -20,9 +20,9 @@ public:
     virtual void aplicarEfectoMagico()=0; //le aplico 
 
     ItemsMagicos(string nombre, string tipodeArma, int daño, int peso, int modelo);
-    void setDaño(int nuevodaño);
-    int getDaño (); //metodo de la clase abstarcta
+    void setDaño(int nuevodaño);//metodo de la clase abstarcta
     
+    int getDaño ()override; 
     int getpeso() override;
     string getNombre() override;
     void aumentarDaño() override;
