@@ -5,7 +5,7 @@ using namespace std;
 
 Pocion :: Pocion(string nombre, int daño,string compatibilidad, int modelo): 
     ItemsMagicos(nombre, "Item magico", daño, 1 , modelo),
-    veneno(veneno),
+    veneno("veneno"),
     dosisRestantes(10),
     poder(daño),
     compatibilidad(compatibilidad),
@@ -40,10 +40,10 @@ void Pocion:: aplicarEfectoMagico(){
         cout<<"Pocion vencida... Daño debil"<<endl;
     }
 
-    cout<<"La pocion envenena al enemigo causandole "<<daño<< "de daño"<<endl;
+    cout<<"La pocion envenena al enemigo causandole "<<daño<< " de daño"<<endl;
     dosisRestantes--;
     if(dosisRestantes> 0){
-        cout<<dosisRestantes<<"dosis restantes"<<endl;
+        cout<<dosisRestantes<<" dosis restantes"<<endl;
     }else{
         dosisRestantes=0;
         cout<<"la pocion se agoto."<<endl;

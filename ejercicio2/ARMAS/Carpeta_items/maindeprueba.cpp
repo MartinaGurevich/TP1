@@ -1,53 +1,54 @@
-#include "LibrodeHechizos.hpp"
+#include "Pocion.hpp"
+#include "Amuleto.hpp"
 #include <iostream>
+
 using namespace std;
 
 int main() {
-    // Crear el libro
-    LibrodeHechizos grimorio("Grimorio de las Sombras",20, "Mago", 1790);
+    cout << "===== PRUEBA DE POCIÓN =====\n" << endl;
+    Pocion veneno("Poción de veneno", 25, "Mago", 2010);
 
-    cout << "\n=== INFO INICIAL ===" << endl;
-    cout << "Nombre: " << grimorio.getNombre() << endl;
-    cout << "Tipo de arma: " << grimorio.getTipodearma() << endl;
-    cout << "Modelo: " << grimorio.getModelo() << endl;
-    cout << "Peso: " << grimorio.getpeso() << endl;
-    cout << "Daño base: " << grimorio.getDaño() << endl;
+    // Ver compatibilidad
+    veneno.personaje_compatible("Guerrero"); // Debería reducir daño
 
-    cout << "\n=== COMPATIBILIDAD ===" << endl;
-    grimorio.personaje_compatible("Guerrero"); // deberia reducir daño
-    grimorio.personaje_compatible("Mago");
+    // Verificar vencimiento (si está vencida reduce efecto)
+    veneno.verificarvencimiento();
 
-    cout << "\n=== CAMBIAR HECHIZO ===" << endl;
-    grimorio.cambiarHechizo("Bola de fuego");
-    grimorio.cambiarHechizo("Curación");
-    grimorio.cambiarHechizo("Hechizo inexistente");
-
-    cout << "\n=== LANZAR HECHIZOS ===" << endl;
-    for (int i = 0; i < 5; i++) {
-        cout << "--- Lanzamiento #" << i + 1 << " ---" << endl;
-        grimorio.lanzarHechizo();
-        grimorio.magia_actual();
-        grimorio.durabilidad_libro();
-        cout << endl;
-    }
-
-    cout << "\n=== PRUEBA DE MAGIA BAJA ===" << endl;
-    grimorio.magia_actual();
-    grimorio.cambiarHechizo("Explosión oscura");
-    for (int i = 0; i < 6; i++) {
-        grimorio.lanzarHechizo();
-    }
-
-    cout << "\n=== RECARGAR MAGIA ===" << endl;
-    grimorio.recargar_magia();
-    grimorio.magia_actual();
-
-    cout << "\n=== FORZAR ROTURA Y REPARAR ===" << endl;
+    // Usar todas las dosis
     for (int i = 0; i < 10; i++) {
-        grimorio.lanzarHechizo();  // para gastar la durabilidad
+        cout << "\n→ Uso #" << i + 1 << endl;
+        veneno.aplicarEfectoMagico();
     }
-    grimorio.reparar_libro();
-    grimorio.durabilidad_libro();
+
+    cout << "\n→ Ver efecto tras recarga automática:" << endl;
+    veneno.aplicarEfectoMagico();
+
+    cout << "\n===== PRUEBA DE AMULETO =====\n" << endl;
+    Amuleto amuleto("Amuleto de Tierra", 20, "Mago", 2005);
+
+    // Ver compatibilidad
+    amuleto.personaje_compatible("Mago");
+
+    // Mostrar daño actual
+    amuleto.poderDaño();
+
+    // Usar el amuleto varias veces
+    for (int i = 0; i < 6; i++) {
+        cout << "\n→ Activación #" << i + 1 << endl;
+        amuleto.aplicarEfectoMagico();
+    }
+
+    // Ver daño cuando está desactivado
+    cout << "\n→ Daño con amuleto desactivado: ";
+    amuleto.poderDaño();
+
+    // Recargar y volver a usar
+    cout << "\n→ Recargando el amuleto..." << endl;
+    amuleto.recargar();
+    amuleto.poderDaño();
+
+    cout << "\n→ Usando efecto mágico nuevamente tras recarga:" << endl;
+    amuleto.aplicarEfectoMagico();
 
     return 0;
 }

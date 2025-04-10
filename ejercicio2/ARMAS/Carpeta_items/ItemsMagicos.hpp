@@ -1,3 +1,4 @@
+#pragma once
 #include "../interfazArmas.hpp"
 #include <ostream>
 #include <iostream>

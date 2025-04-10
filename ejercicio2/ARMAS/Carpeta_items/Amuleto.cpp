@@ -5,7 +5,7 @@ using namespace std;
 
 Amuleto :: Amuleto(string nombre, int daño,string compatibilidad, int modelo): 
     ItemsMagicos(nombre, "Item magico", daño, 3 , modelo),
-    elemento(elemento),
+    elemento("tierra"),
     activado(true),
     cargas(5),
     Poderdaño(daño),
@@ -50,7 +50,7 @@ void Amuleto:: aplicarEfectoMagico(){
     }else{
         cargas=0;
         cout<<"sin cargas disponibles. Hay que recargar"<<endl;
-        recargar(); 
+        //recargar(); 
     }
 
 }
@@ -63,6 +63,11 @@ void Amuleto:: activar(){
         cout<<"no hay cargas para poder activarlo"<<endl;
     }
 }
+
+void Amuleto:: desactivar(){
+    activado= false;
+}
+
 
 void Amuleto:: recargar(){
     cargas= 5;
@@ -79,3 +84,4 @@ int Amuleto:: poderDaño(){
         return Poderdaño;
     }
 }
+
