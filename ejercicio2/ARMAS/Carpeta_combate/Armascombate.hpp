@@ -5,21 +5,24 @@
 
 class Armascombate: public Armas
 {
-private:
+public
     string nombre;
     int daño;
     int peso;
     int modelo;
-    string tipodeArma; 
+    string tipodeArma;
+    string compatibilidad; 
 public:
     
-    Armascombate(string nombre, string tipodeArma,  int daño, int peso, int modelo);
+    Armascombate(string nombre, string tipodeArma,  int daño, int modelo, int peso, string compatibilidad);
 
     virtual void golpeEspecial()=0 ; //cada arma puede tener su proopio golpe especial
     
     void setDaño(int nuevodaño);
-    int getDaño()override;
+    bool compatible(string compatibilidad);
+    
     int getpeso() override;
+    int getDaño()override;
     string getNombre() override;
     void aumentarDaño() override;
     int getModelo() override;

@@ -5,14 +5,13 @@ using namespace std;
 
 int main() {
     // Crear un hacha simple con estado inicial "Nueva"
-    Hachasimple miHacha("Rompecráneos", 50, "Guerrero", 2020, "Nueva", 30);
+    Hachasimple miHacha("Rompecráneos", 50, "Guerrero", 2020, 30);
 
     cout << "\n--- INFORMACIÓN INICIAL DEL HACHA ---" << endl;
-    cout << "Estado: " << miHacha.getEstado() << endl;
     cout << "Filo: " << miHacha.getFilo() << endl;
     cout << "Desgaste: " << miHacha.getDesgaste() << endl;
     cout << "Daño base: " << miHacha.getDaño() << endl;
-    cout << "Golpe crítico adicional: " << miHacha.getCritico() << endl;
+    
 
     cout << "\n--- VERIFICANDO COMPATIBILIDAD ---" << endl;
     miHacha.compatible("Mago");  // También podés probar "Mago"
@@ -55,8 +54,7 @@ int main() {
     cout << "\n--- OTRO GOLPE ESPECIAL TRAS AFILADO AUTOMÁTICO ---" << endl;
     miHacha.golpeEspecial();
 
-    cout << "\n--- ESTADO FINAL DEL HACHA ---" << endl;
-    cout << "Estado actual (calculado): " << miHacha.estadoHacha() << endl;
+
 
     return 0;
 }

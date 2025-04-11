@@ -2,16 +2,35 @@
 
 
 //constructor 
-Armascombate:: Armascombate(string nombre, string tipodeArma,  int daño, int peso, int modelo): 
+Armascombate:: Armascombate(string nombre, string tipodeArma,  int daño, int modelo, int peso, string compatibilidad): 
     nombre(nombre),
     daño(daño),
     peso(peso),
     modelo(modelo),
-    tipodeArma(tipodeArma) 
+    tipodeArma(tipodeArma),
+    compatibilidad(compatibilidad)
 {
     if(modelo <= 2010) {  //cuadno es mas grande que las nuevas daña mas
         aumentarDaño();
         cout<<"Item con experiencia... modelo : "<<modelo<<".Aumenta su daño a:"<<getDaño()<<endl;
+    }
+}
+
+bool Armascombate:: compatible(string compatibilidad){
+    {
+        if(compatibilidad=="Guerrero"){
+            cout<<"Arma compatible para un Gurerrero"<<endl;
+            return true;
+        }else{
+            cout<<"Item NO compatible, daño reducido."<<endl;
+            //disminuye el daño en 5 puntos si es un Guerrero.
+            int dañoActual= getDaño();
+            setDaño(dañoActual - 5);
+    
+            cout<<"El Hachasimple daña "<<getDaño()<< " porque usted es Mago."<<endl;
+    
+            return false;
+        }
     }
 }
 
@@ -32,7 +51,7 @@ string Armascombate:: getNombre(){
 
 void Armascombate:: aumentarDaño(){
     daño += 5; //aumenta el daño real del arma
-    return ;  //aumenta el daño segun alguna condicion 
+ //aumenta el daño segun alguna condicion 
 }
 
 
