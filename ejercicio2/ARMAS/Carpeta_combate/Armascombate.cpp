@@ -12,7 +12,7 @@ Armascombate:: Armascombate(string nombre, string tipodeArma,  int daño, int mo
 {
     if(modelo <= 2010) {  //cuadno es mas grande que las nuevas daña mas
         aumentarDaño();
-        cout<<"Item con experiencia... modelo : "<<modelo<<".Aumenta su daño a:"<<getDaño()<<endl;
+        cout<<"Arma con experiencia... modelo : "<<modelo<<".Aumenta su daño a:"<<getDaño()<<endl;
     }
 }
 
@@ -22,12 +22,12 @@ bool Armascombate:: compatible(string compatibilidad){
             cout<<"Arma compatible para un Gurerrero"<<endl;
             return true;
         }else{
-            cout<<"Item NO compatible, daño reducido."<<endl;
+            cout<<"NO compatible, daño reducido."<<endl;
             //disminuye el daño en 5 puntos si es un Guerrero.
             int dañoActual= getDaño();
             setDaño(dañoActual - 5);
     
-            cout<<"El Hachasimple daña "<<getDaño()<< " porque usted es Mago."<<endl;
+            cout<<"--> El  daño es:  "<<getDaño()<< " porque usted es Mago."<<endl;
     
             return false;
         }

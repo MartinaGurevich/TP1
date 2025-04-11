@@ -8,7 +8,7 @@ private:
     int filo_simple;
 public:
     
-    Hachadoble(int extraFilo, int filosimple);
+    Hachadoble(string nombre, string compatibilidad,int modelo, int peso);
     
     //metodo de la abstracta 
     void golpeEspecial() override; //se usan los dos filos de cada ala del hacha potenciados 

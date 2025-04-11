@@ -5,7 +5,7 @@
 
 class Armascombate: public Armas
 {
-public
+protected:
     string nombre;
     int daño;
     int peso;
