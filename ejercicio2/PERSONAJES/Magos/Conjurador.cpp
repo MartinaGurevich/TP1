@@ -10,7 +10,9 @@ void Conjurador:: Escudomagico(){
 }
 
 int Conjurador:: lanzoconjuro(Personajes& objetivo){ //aumento mi vida 10 y le saco vida a el otro 10
-    if(daño_obtenido>50){
+    setDaño_obtenido(40); // ver esto
+    cout << "daño que recibe : "<< daño_obtenido<< endl;
+    if(daño_obtenido> 30){
         cout<<"Lanzo conjuro porque el daño fue mayor a 50. Saca 10 de vida a " <<objetivo.getNombre()<<endl;
         
         objetivo.setDaño_obtenido(10);

@@ -1,4 +1,4 @@
-#include "Hechicero.hpp"
+#include "Conjurador.hpp"
 #include "../../ARMAS/Carpeta_items/Amuleto.hpp"
 #include "../../ARMAS/Carpeta_combate/Espada.hpp"
 
@@ -13,8 +13,8 @@ int main() {
     auto amuleto = make_shared<Amuleto>("amuleto", "Guerrero", 2030); //utiliza arma con experiencoa
 
     // Crear personajes Hechiceros
-    Hechicero merlin("Merlín", 10, make_pair(espada, amuleto));
-    Hechicero morgana("Morgana", 9, make_pair(espada, nullptr));
+    Conjurador merlin("Merlín", make_pair(espada, amuleto));
+    Conjurador morgana("Morgana", make_pair(espada, nullptr));
 
 
     cout << "\n====== ESTADO INICIAL merlin ======" << endl;
@@ -26,6 +26,7 @@ int main() {
     for (int i = 0; i < 2; ++i) {
         cout << "\n--- Turno " << i + 1 << " ---" << endl;
         merlin.atacar(morgana);
+        merlin.lanzoconjuro(morgana);
     }
 
     cout << "\n====== ESTADO FINAL ======" << endl;
