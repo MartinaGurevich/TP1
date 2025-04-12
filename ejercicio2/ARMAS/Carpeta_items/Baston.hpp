@@ -11,7 +11,7 @@ private:
     int energia; // la aenergia que le queda al baston para pegar
 
 public:
-    Baston(string nombre, int daño,string compatibilidad, int modelo);
+    Baston(string nombre,string compatibilidad, int modelo);
 
   
     bool personaje_compatible(string compatibilidad); //me dice si es mago lo puedo usar, sino le resta daño q hace 

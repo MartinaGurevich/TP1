@@ -10,7 +10,7 @@ ItemsMagicos:: ItemsMagicos(string nombre, string tipodeArma,  int daño, int pe
 {
     if(modelo <= 2010) {  //cuadno es mas grande que las nuevas daña mas
         aumentarDaño();
-        cout<<"Item con experiencia... modelo : "<<modelo<<".Aumenta su daño a:"<<getDaño()<<endl;
+        cout<<getNombre()<<" Es un Item con experiencia... modelo : "<<modelo<<" .Aumenta su daño a:"<<getDaño()<<endl;
     }
 }
 

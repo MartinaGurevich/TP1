@@ -1,8 +1,8 @@
 #include "Baston.hpp"
 using namespace std;
 
-Baston:: Baston(string nombre, int daño,string compatibilidad, int modelo):
-    ItemsMagicos(nombre, "Baston", daño, 5 , modelo),  
+Baston:: Baston(string nombre,string compatibilidad, int modelo):
+    ItemsMagicos(nombre, "Baston", 20, 5 , modelo),  
     efectoespecial("quemadura"),
     compatibilidad(compatibilidad),
     durabilidad(50),

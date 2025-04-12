@@ -12,7 +12,7 @@ Armascombate:: Armascombate(string nombre, string tipodeArma,  int daño, int mo
 {
     if(modelo <= 2010) {  //cuadno es mas grande que las nuevas daña mas
         aumentarDaño();
-        cout<<"Arma con experiencia... modelo : "<<modelo<<".Aumenta su daño a:"<<getDaño()<<endl;
+        cout<<getNombre()<<"--> Es un Arma con experiencia... modelo: "<<modelo<<" .Aumenta su daño a:"<<getDaño()<<endl;
     }
 }
 
