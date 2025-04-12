@@ -6,7 +6,6 @@ Resistencia(20){}
 
 void Gladiador:: ArmaduraEspecial(){
     daño_obtenido= max(0,daño_obtenido - Resistencia );
-    //setDaño_obtenido(daño_obtenido - escudo);
     vida -= daño_obtenido;
     cout <<"PERO...."<<getNombre() <<" activa su escudo de Conjurador y el daño ejercido se reduce a  : "<< daño_obtenido<< endl;
 }
