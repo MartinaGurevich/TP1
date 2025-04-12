@@ -19,6 +19,7 @@ public:
     
     void setArma_1(shared_ptr<Armas> arma);
     void setArma_2(shared_ptr<Armas> arma);
+    void aumentar_vida(int cantidad);
 
     //metodos de la interfaz
     pair<shared_ptr<Armas>,shared_ptr<Armas>> getArmas() const override;  //le doy la posibilidad a todos los persoajes de tener dos armas

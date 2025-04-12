@@ -26,7 +26,7 @@ int main() {
     veneno.aplicarEfectoMagico();
 
     cout << "\n===== PRUEBA DE AMULETO =====\n" << endl;
-    Amuleto amuleto("Amuleto de Tierra", 20, "Mago", 2005);
+    Amuleto amuleto("Amuleto de Tierra", "Mago", 2005);
 
     // Ver compatibilidad
     amuleto.personaje_compatible("Mago");

@@ -12,7 +12,7 @@ public:
 
     void Escudomagico() override; 
     int lanzoconjuro(Personajes& objetivo); //le saca mas vida al contrincante
-    
+
 
     ~Conjurador()= default;
 };

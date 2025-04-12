@@ -11,7 +11,7 @@ private:
     int Poderdaño; //cuanto daño hace
     string compatibilidad; //magos
 public:
-    Amuleto(string nombre, int daño,string compatibilidad, int modelo);
+    Amuleto(string nombre,string compatibilidad, int modelo);
     
     void aplicarEfectoMagico() override; //aplica el elemento y le sacaca cargas
 

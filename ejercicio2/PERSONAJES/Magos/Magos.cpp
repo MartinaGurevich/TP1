@@ -90,3 +90,9 @@ void Magos:: mostrarInfo() {
     cout<<"--> Vida restante del mago: " <<getSalud()<<endl;
 
 }
+
+void Magos:: aumentar_vida(int cantidad){
+    vida+= cantidad;
+    if(vida> 100) vida=100;
+    cout<<nombre<<" Aumenta su vida un  "<<cantidad<< " . Vida actual: "<<vida<< endl; 
+}

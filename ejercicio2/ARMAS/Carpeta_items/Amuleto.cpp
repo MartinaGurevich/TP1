@@ -3,29 +3,29 @@
 
 using namespace std;
 
-Amuleto :: Amuleto(string nombre, int daño,string compatibilidad, int modelo): 
-    ItemsMagicos(nombre, "Amuleto", daño, 3 , modelo),
+Amuleto :: Amuleto(string nombre, string compatibilidad, int modelo): 
+    ItemsMagicos(nombre, "Amuleto", 20, 3 , modelo),
     elemento("tierra"),
     activado(true),
     cargas(5),
-    Poderdaño(daño),
+    Poderdaño(20),
     compatibilidad(compatibilidad){}
     
 
-bool Amuleto:: personaje_compatible (string compatibilidad){
-    if(compatibilidad=="Mago"){
-        cout<<"Item compatible para un Mago"<<endl;
-        return true;
-    }else{
-        cout<<"Item NO compatible, daño reducido."<<endl;
-        //disminuye el daño en 5 puntos si es un Guerrero.
-        int dañoActual= getDaño();
-        setDaño(dañoActual - 5);
+// bool Amuleto:: personaje_compatible (string compatibilidad){
+//     if(compatibilidad=="Mago"){
+//         cout<<"Item compatible para un Mago"<<endl;
+//         return true;
+//     }else{
+//         cout<<"Item NO compatible, daño reducido."<<endl;
+//         //disminuye el daño en 5 puntos si es un Guerrero.
+//         int dañoActual= getDaño();
+//         setDaño(dañoActual - 5);
 
-        cout<<"La pocion daña: "<<getDaño()<< " porque usted es Gurerrero."<<endl;
-        return false;
-    }
-}
+//         cout<<"La pocion daña: "<<getDaño()<< " porque usted es Gurerrero."<<endl;
+//         return false;
+//     }
+// }
 
 
 void Amuleto:: aplicarEfectoMagico(){

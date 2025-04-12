@@ -13,7 +13,14 @@ int Conjurador:: lanzoconjuro(Personajes& objetivo){ //aumento mi vida 10 y le s
     if(daño_obtenido>50){
         cout<<"Lanzo conjuro porque el daño fue mayor a 50. Saca 10 de vida a " <<objetivo.getNombre()<<endl;
         
+        objetivo.setDaño_obtenido(10);
+        objetivo.Recibir_daño();
+
+        //me agrego vida
+        aumentar_vida(10);
+        return 1;
     }
+    return 0;
 }
 
 
