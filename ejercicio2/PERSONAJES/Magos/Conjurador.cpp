@@ -1,28 +1,17 @@
 #include "Conjurador.hpp"
 
-Conjurador:: Conjurador(string nombre, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS): //ver lo de nvel 
+Conjurador:: Conjurador(string nombre, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS): 
 Magos (nombre,25, ARMAS),
-escudo(30){}
+conjuro(30){}
 
 void Conjurador:: Escudomagico(){
-    setDaño_obtenido(daño_obtenido - escudo);
+    daño_obtenido= max(0,daño_obtenido - conjuro);
+    //setDaño_obtenido(daño_obtenido - escudo);
     vida -= daño_obtenido;
+    cout <<"PERO...."<<getNombre() <<" activa su escudo de Conjurador y el daño ejercido se reduce a  : "<< daño_obtenido<< endl;
+
+
 }
 
-int Conjurador:: lanzoconjuro(Personajes& objetivo){ //aumento mi vida 10 y le saco vida a el otro 10
-    setDaño_obtenido(40); // ver esto
-    cout << "daño que recibe : "<< daño_obtenido<< endl;
-    if(daño_obtenido> 30){
-        cout<<"Lanzo conjuro porque el daño fue mayor a 50. Saca 10 de vida a " <<objetivo.getNombre()<<endl;
-        
-        objetivo.setDaño_obtenido(10);
-        objetivo.Recibir_daño();
-
-        //me agrego vida
-        aumentar_vida(10);
-        return 1;
-    }
-    return 0;
-}
 
 

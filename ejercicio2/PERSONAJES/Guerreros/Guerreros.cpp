@@ -1,35 +1,42 @@
-#include "Magos.hpp"
+#include "Guerreros.hpp"
 
-Magos:: Magos(string nombre,int nivel, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS):
+Guerreros:: Guerreros(string nombre,int nivel, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS):
 nombre(nombre), vida(100), ARMAS(ARMAS), daño_obtenido(0), nivel(nivel) {}
 
 //SETTERS
-void Magos:: setDaño_obtenido(int daño){ 
+void Guerreros:: setDaño_obtenido(int daño){ 
     daño_obtenido = daño;  //modifico el daño que obtuve
 }
 
-void Magos:: setArma_1(shared_ptr<Armas> arma){
+void Guerreros:: setArma_1(shared_ptr<Armas> arma){
     ARMAS.first= arma;
 }
 
-void Magos:: setArma_2(shared_ptr<Armas> arma){
+void Guerreros:: setArma_2(shared_ptr<Armas> arma){
     ARMAS.second= arma;
 }
 
-//metodos de la interfaz
-pair<shared_ptr<Armas>,shared_ptr<Armas>> Magos:: getArmas() const{ //le doy la posibilidad a todos los persoajes de tener dos armas
+//metodo de la abstracta 
+void Guerreros:: aumentar_vida(int cantidad){
+    vida+= cantidad;
+    if(vida> 100) vida=100;
+    cout<<nombre<<" Aumenta su vida un  "<<cantidad<< " . Vida actual: "<<vida<< endl; 
+}
+
+//METODOS DE LA INTERFAZ
+pair<shared_ptr<Armas>,shared_ptr<Armas>> Guerreros:: getArmas() const{ //le doy la posibilidad a todos los persoajes de tener dos armas
     return ARMAS;
 } 
 
-    //getters
-string Magos:: getNombre(){
+//getters
+string Guerreros:: getNombre(){
     return nombre;
 }
-int Magos:: getSalud(){
+int Guerreros:: getSalud(){
     return vida;
 }
 
-void Magos:: atacar(Personajes& objetivo_de_ataque){
+void Guerreros:: atacar(Personajes& objetivo_de_ataque){
     int DañoTotal=0;
     
     if(!ARMAS.first && !ARMAS.second){
@@ -58,9 +65,8 @@ void Magos:: atacar(Personajes& objetivo_de_ataque){
 
 
 
-void Magos::Recibir_daño(){//me saca vida
-        Escudomagico();
-        //vida -= daño_obtenido;
+void Guerreros::Recibir_daño(){//me saca vida
+        ArmaduraEspecial(); //disminutye daño
         cout<<nombre<<" -->  recibe  "<< daño_obtenido<< " puntos de daño"<<endl;
         if (vida < 0) vida=0;
         curar();
@@ -68,14 +74,14 @@ void Magos::Recibir_daño(){//me saca vida
 
 }
 
-void Magos:: curar(){
+void Guerreros:: curar(){
     if(vida == 0){ 
         cout<<"el enemigo murio"<<endl;
         cout<<"Curando..."<<endl;
         vida= 100;
     }
 }
-void Magos:: mostrarInfo() {
+void Guerreros:: mostrarInfo() {
     if(ARMAS.first){
         cout<<"--> Primer arma que tiene "<<getNombre()<< " es : "<<ARMAS.first->getNombre()<<endl;
     }else{
@@ -89,10 +95,4 @@ void Magos:: mostrarInfo() {
     cout<<"--> Nivel de "<<getNombre()<< " es : "<<nivel<<endl;
     cout<<"--> Vida restante de "<<getNombre()<< " es : "<<getSalud()<<endl;
 
-}
-
-void Magos:: aumentar_vida(int cantidad){
-    vida+= cantidad;
-    if(vida> 100) vida=100;
-    cout<<nombre<<" Aumenta su vida un  "<<cantidad<< " . Vida actual: "<<vida<< endl; 
 }

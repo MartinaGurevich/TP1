@@ -2,20 +2,19 @@
 #include <memory>
 
 
-class Magos: public Personajes
+class Guerreros: public Personajes
 {
 protected:
     string nombre;    
     int vida;
     pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS;
-    //int escudo; //me cubre del daño, lo uso en escudomagico
     int daño_obtenido;
     int nivel; //nivel del personaje
 public:
-    Magos(string nombre, int nivel, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS);
+    Guerreros(string nombre, int nivel, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS);
     
-    virtual void Escudomagico()=0; //me cubro del daño , armadura especial para guerreros. 
-    //cada mago tiene su propio escudo magico
+    virtual void ArmaduraEspecial()=0; //armadura especial para guerreros. Reduce daño ejercido
+ 
     
     void setArma_1(shared_ptr<Armas> arma);
     void setArma_2(shared_ptr<Armas> arma);
@@ -30,8 +29,8 @@ public:
     void curar() override;
     void mostrarInfo() override; 
     void setDaño_obtenido(int daño) override;
-    //void getDaño_obtenido() override;
+   
 
-    ~Magos()= default;
+    ~Guerreros()= default;
 };
 
