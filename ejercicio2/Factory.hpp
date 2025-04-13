@@ -35,8 +35,8 @@
 
 #include <vector>
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <cstdlib> //para rand() 
+#include <ctime> //para time()
 #include <memory>
 #include <string>
 
@@ -60,13 +60,13 @@ enum class Tipopersonaje{
     hechicero =2,
     nigromante = 3,
     barbaro =4,
-    paldin =5,
+    paladin =5,
     caballero =6,
-    merenario =7,
+    mercenario =7,
     gladiador= 8
 }; 
 
-class Factory
+class PersonajeFactory
 {
 public:
     static shared_ptr<Armas> Creacion_Arma(tipoArma arma); 
@@ -74,10 +74,14 @@ public:
     static shared_ptr<Personajes> Creacion_Personaje_Arma(Tipopersonaje personaje, pair<shared_ptr<Armas>, shared_ptr<Armas>> armas); 
 };
 
-//funcion para eleccion aleatoria de personajes(3 a 7)
+//funcion para eleccion aleatoria de magos(3 a 7)
+vector<Tipopersonaje> Magos_aleatorios();
+
+//funcion para eleccion aleatoria de guerreros(3 a 7)
+vector<Tipopersonaje> Guerreros_aleatorios();
 
 //funcion para eleccion aleatoria de armas. (0 a 2)
-
+int Armas_aleatorias();
 
 
 

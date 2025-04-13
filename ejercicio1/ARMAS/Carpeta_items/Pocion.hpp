@@ -10,7 +10,7 @@ private:
     string compatibilidad; 
     bool vencida; //si la pocion esta vencida
 public:
-    Pocion(string nombre, int daño,string compatibilidad, int modelo);
+    Pocion(string nombre,string compatibilidad, int modelo);
 
     void aplicarEfectoMagico() override; //aplico veneno
     bool personaje_compatible(string compatibilidad);//

@@ -3,11 +3,11 @@
 
 using namespace std;
 
-Pocion :: Pocion(string nombre, int daño,string compatibilidad, int modelo): 
-    ItemsMagicos(nombre, "Pocion", daño, 1 , modelo),
+Pocion :: Pocion(string nombre,string compatibilidad, int modelo): 
+    ItemsMagicos(nombre, "Pocion", 15, 1 , modelo),
     veneno("veneno"),
     dosisRestantes(10),
-    poder(daño),
+    poder(15),
     compatibilidad(compatibilidad),
     vencida(false){}
     

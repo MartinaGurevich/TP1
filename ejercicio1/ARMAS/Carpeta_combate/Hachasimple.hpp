@@ -9,7 +9,7 @@ private:
 
     
 public:
-    Hachasimple(string nombre, int daño,string compatibilidad, int modelo, int peso);
+    Hachasimple(string nombre,string compatibilidad, int modelo, int peso);
 
     void golpeEspecial() override;//metodo de la abstracta
 

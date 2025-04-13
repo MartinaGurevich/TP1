@@ -1,7 +1,7 @@
 #include "LibrodeHechizos.hpp"
 
-LibrodeHechizos:: LibrodeHechizos(string nombre, int daño,string compatibilidad, int modelo):
-    ItemsMagicos(nombre, "LibrodeHechizos", daño, 5 , modelo),  
+LibrodeHechizos:: LibrodeHechizos(string nombre,string compatibilidad, int modelo):
+    ItemsMagicos(nombre, "LibrodeHechizos", 20, 5 , modelo),  
     magia(100),
     compatibilidad(compatibilidad),
     hechizoLanzado(""),

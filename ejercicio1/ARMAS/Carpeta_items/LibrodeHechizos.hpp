@@ -18,7 +18,7 @@ private:
 
     
 public:
-    LibrodeHechizos(string nombre, int daño,string compatibilidad, int modelo);
+    LibrodeHechizos(string nombre,string compatibilidad, int modelo);
 
     bool personaje_compatible(string compatibilidad); //me dice si es mago lo puedo usar, sino le resta daño q hace 
     int magia_actual();

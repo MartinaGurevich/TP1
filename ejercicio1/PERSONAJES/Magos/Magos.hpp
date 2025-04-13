@@ -1,5 +1,6 @@
 #include "InterfazPersonajes.hpp"
 #include <memory>
+#pragma once
 
 
 class Magos: public Personajes

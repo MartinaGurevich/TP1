@@ -1,8 +1,8 @@
 #include "Hachasimple.hpp"
 
 //constructor hacha
-Hachasimple:: Hachasimple(string nombre, int daño, string compatibilidad,int modelo, int peso): 
-    Armascombate(nombre, "Hachasimple", daño, modelo, peso, compatibilidad),
+Hachasimple:: Hachasimple(string nombre, string compatibilidad,int modelo, int peso): 
+    Armascombate(nombre, "Hachasimple", 20, modelo, peso, compatibilidad),
     filo(20), //cuanto lastima
     desgaste(50){}
     //compatibilidad(compatibilidad){}
