@@ -60,7 +60,7 @@ shared_ptr<Personajes> PersonajeFactory:: Creacion_Personaje(Tipopersonaje perso
 shared_ptr<Personajes> PersonajeFactory::Creacion_Personaje_Arma(Tipopersonaje personaje, pair<shared_ptr<Armas>, shared_ptr<Armas>> armas){
     switch (personaje)
     {
-        case Tipopersonaje:: brujo:
+    case Tipopersonaje:: brujo:
         return make_shared<Brujo>("Brujo",armas);
     case Tipopersonaje:: conjurador:
         return make_shared<Conjurador>("Conjurador",armas);
