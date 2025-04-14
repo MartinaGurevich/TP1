@@ -129,6 +129,5 @@ vector<Tipopersonaje> Guerreros_aleatorios(){
 
 //funcion para eleccion aleatoria de armas. (0 a 2)
 int Armas_aleatorias(){
-    //pero que elija entre las 9 armasz que tengo 
     return rand() % 3;
 }
