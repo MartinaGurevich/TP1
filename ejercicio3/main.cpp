@@ -89,7 +89,6 @@ int main(){
         cout<< jugador1->getNombre()<< "HP: "<<HP_j1<< endl;
         cout<< jugador2->getNombre()<< "HP: "<<HP_j2<< endl;
 }
-
     //result final 
     if(HP_j1<= 0 && HP_j2 <=0){
         cout<<"Empate. AMBOS MURIERON. \n";
@@ -102,3 +101,6 @@ int main(){
 
     }
 }
+
+
+// QUE SE HAGA TANTO DAÑO SI EL ARMA ES VIEJA O JOVEN ... VER ESO , si es una arma nuev ahace 10 de daño sino hace lo que dice
