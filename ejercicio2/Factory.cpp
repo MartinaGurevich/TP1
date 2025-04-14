@@ -15,9 +15,9 @@ shared_ptr<Armas> PersonajeFactory::Creacion_Arma(tipoArma arma){
         case tipoArma::amuleto:
             return make_shared<Amuleto>("Amuleto", "Mago", 2020);
         case tipoArma::espada:
-            return make_shared<Espada>("Espada", "Guerrero", 2010,10); //va  aapareceer la leyenda de que como es legendaria aumenta su daño+ 5
+            return make_shared<Espada>("Espada", "Guerrero", 2024,10); 
         case tipoArma::garrote:
-            return make_shared<Garrote>("Garrote", "Guerrero", 2010,10,20); //idem
+            return make_shared<Garrote>("Garrote", "Guerrero", 2025,10,20); 
         case tipoArma::hachadoble:
             return make_shared<Hachadoble>("Hachadoble", "Guerrero", 2025,10);
         case tipoArma::hachasimple:
