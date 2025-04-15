@@ -1,7 +1,7 @@
 #include "LibrodeHechizos.hpp"
 
 LibrodeHechizos:: LibrodeHechizos(string nombre,string compatibilidad, int modelo):
-    ItemsMagicos(nombre, "LibrodeHechizos", 20, 5 , modelo),  
+    ItemsMagicos(nombre, "LibrodeHechizos", 20, 5 , modelo),  //20 de daño base 
     magia(100),
     compatibilidad(compatibilidad),
     hechizoLanzado(""),
@@ -101,7 +101,7 @@ void LibrodeHechizos:: aplicarEfectoMagico(){
         cout<<"El libro se deterioro completamnete. Hay que repararlo"<<endl;
         reparar_libro();
     }
-    cout<< "Magia restante: "<<magia<< "| Durabilidad restante: "<<durabilidad<< endl;
+    cout<< "Magia restante: "<<magia<< " | Durabilidad restante: "<<durabilidad<< endl;
 }
 
   

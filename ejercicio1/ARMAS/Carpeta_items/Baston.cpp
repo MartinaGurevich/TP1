@@ -2,7 +2,7 @@
 using namespace std;
 
 Baston:: Baston(string nombre,string compatibilidad, int modelo):
-    ItemsMagicos(nombre, "Baston", 20, 5 , modelo),  
+    ItemsMagicos(nombre, "Baston", 20, 5 , modelo),  //20 de daño base
     efectoespecial("quemadura"),
     compatibilidad(compatibilidad),
     durabilidad(50),
@@ -25,7 +25,7 @@ bool Baston:: personaje_compatible(string compatibilidad){
 }
 
 int Baston:: vida_restante(){
-    //baja -2 cada vez que se usa el baston 
+    //baja -5 cada vez que se usa el baston 
     durabilidad -= 5;
     if(durabilidad> 0){
         cout << "Al baston le queda :"<<durabilidad<<"de durabilidad."<<endl;

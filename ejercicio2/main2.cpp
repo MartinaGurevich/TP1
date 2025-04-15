@@ -55,7 +55,7 @@ int main(){
         }
     }
     //muestro personajes con arams 
-    cout<<"LISTA PERSONAJES--------------\n";
+    cout<<"----------- LISTA PERSONAJES --------------\n";
     for (auto& p: personajes){
         if (!p){
            cout<<"personaje nullptr"<< endl;
@@ -67,13 +67,17 @@ int main(){
         auto armas = p->getArmas(); //accedo a armas del peresonaje
 
         if (armas.first || armas.second){
-            cout<<"--> ARMAS: ";  
+            cout<<"--> ARMAS: \n";  
             if (armas.first){
-                cout<< armas.first->getNombre();
+                cout<<"Primer arma: "<<armas.first->getNombre()<<endl;
+                cout<<"* DAÑO de " <<armas.first->getNombre()<<": "<< armas.first->getDaño()<<"\n";;
+                
             }
             if (armas.second){
-                if (armas.first) cout<<", ";
-                cout<< armas.second->getNombre();
+                if (armas.first) cout<<"\n";
+                cout<< "Segunda arma: "<<armas.second->getNombre()<<endl;
+                cout<<"* DAÑO de " <<armas.second->getNombre()<<": "<<armas.second->getDaño()<<"\n";;
+
             }
             cout<< endl<<"\n";
         } else{

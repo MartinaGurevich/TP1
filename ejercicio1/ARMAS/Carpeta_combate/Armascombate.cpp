@@ -1,6 +1,5 @@
 #include "Armascombate.hpp"
 
-
 //constructor 
 Armascombate:: Armascombate(string nombre, string tipodeArma,  int daño, int modelo, int peso, string compatibilidad): 
     nombre(nombre),
@@ -10,7 +9,7 @@ Armascombate:: Armascombate(string nombre, string tipodeArma,  int daño, int mo
     tipodeArma(tipodeArma),
     compatibilidad(compatibilidad)
 {
-    if(modelo <= 2010) {  //cuadno es mas grande que las nuevas daña mas
+    if(modelo <= 2010) {  //las armas mas viejas tienen mas poder de daño. Son una especie de LEGENDARIAS.
         cout<<"¡ ATENCION ! El daño incial de "<<getNombre()<<" es: "<<getDaño()<<endl;
         aumentarDaño();
         cout<<"Pero, "<<getNombre()<<"--> Es un Arma con experiencia... modelo: "<<modelo<<" .Aumenta su daño a:"<<getDaño()<<endl;
@@ -52,7 +51,6 @@ string Armascombate:: getNombre(){
 
 void Armascombate:: aumentarDaño(){
     daño += 5; //aumenta el daño real del arma
- //aumenta el daño segun alguna condicion 
 }
 
 

@@ -11,7 +11,7 @@ public:
     Hachadoble(string nombre, string compatibilidad,int modelo, int peso);
     
     //metodo de la abstracta 
-    void golpeEspecial() override; //se usan los dos filos de cada ala del hacha potenciados 
+    void golpeEspecial() override; //se usan los dos filos del hacha potenciados 
     int afilar(); //la afilo
     int desafilar(); //se usa el arma 
 

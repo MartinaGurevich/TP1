@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <ostream>
-#include <istream>
+#include <iostream>
 
 using namespace std;
 

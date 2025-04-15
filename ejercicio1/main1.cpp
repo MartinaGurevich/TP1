@@ -98,11 +98,4 @@ int main(){
     gladiador.mostrarInfo();
 
     return 0;
-
-
-
-    
-
-
-    
 }

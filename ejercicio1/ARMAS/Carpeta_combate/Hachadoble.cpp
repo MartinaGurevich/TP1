@@ -1,7 +1,7 @@
 #include "Hachadoble.hpp"
 
 Hachadoble:: Hachadoble(string nombre, string compatibilidad,int modelo, int peso):
-Armascombate(nombre, "Hachadoble",20,modelo, peso,compatibilidad),
+Armascombate(nombre, "Hachadoble",20,modelo, peso,compatibilidad), //20 de daño base
 extraFilo(15),
 filo_simple(50){}
 

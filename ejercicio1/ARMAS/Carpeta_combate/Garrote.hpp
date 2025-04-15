@@ -11,7 +11,7 @@ public:
     
     //metodo de la abstracta 
     void golpeEspecial() override; //si la dureza es 20kg entonces hace golpe especial 
-    int daño_basico(); //si la dureaz es menos que 20
+    int daño_basico(); //si la dureza es menos que 20
 
     
     ~Garrote()= default;

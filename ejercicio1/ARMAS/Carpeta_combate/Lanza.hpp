@@ -4,13 +4,13 @@
 class Lanza: public Armascombate
 {
 private:
-    int profundidad_lanza; //Puede dañar armaduras, se suma al daño
+    int profundidad_lanza; //Puede perforar armaduras, aumenta el daño
 public:
     
     Lanza(string nombre, string compatibilidad,int modelo, int peso);
     
     //metodo de la abstracta 
-    void golpeEspecial() override; //se usan los dos filos de cada ala del hacha potenciados 
+    void golpeEspecial() override; //se usa el poder de perforar armaduras
     int daño_basico();
 
     

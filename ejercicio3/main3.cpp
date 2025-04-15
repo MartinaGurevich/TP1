@@ -85,11 +85,7 @@ int main(){
         
         cout<<"========== COMIENZO DE BATALLA. RONDA N°: "<<contador<<" ============="<<endl;
 
-        int daño= 10; //arma nueva
-        //int daño_arma_legendaria_j1= jugador1->getArmas().first->getDaño();
-        //int daño_arma_legendaria_j2= jugador2->getArmas().first->getDaño();
-
-
+        int daño= 10; 
 
         if(ataque_j1== ataque_j2){
             cout<<"Empate. Ambos jugadores golpearon igual. Se pasa a la siguiente ronda. \n";

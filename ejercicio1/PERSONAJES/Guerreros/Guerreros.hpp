@@ -14,7 +14,7 @@ protected:
 public:
     Guerreros(string nombre, int nivel, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS);
     
-    virtual void ArmaduraEspecial()=0; //armadura especial para guerreros. Reduce daño ejercido
+    virtual void ArmaduraEspecial()=0; //armadura especial para guerreros. Reduce el daño que el guerrero recibe
  
     
     void setArma_1(shared_ptr<Armas> arma);

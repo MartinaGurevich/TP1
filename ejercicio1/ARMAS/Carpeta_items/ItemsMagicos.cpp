@@ -8,7 +8,7 @@ ItemsMagicos:: ItemsMagicos(string nombre, string tipodeArma,  int daño, int pe
     modelo(modelo),
     tipodeArma(tipodeArma) 
 {
-    if(modelo <= 2010) {  //cuadno es mas grande que las nuevas daña mas
+    if(modelo <= 2010) {  //las armas mas viejas tienen mas poder de daño. Son una especie de LEGENDARIAS.
         aumentarDaño();
         cout<<getNombre()<<" --> Es un Item con experiencia... modelo : "<<modelo<<".Aumenta su daño a:"<<getDaño()<<endl;
     }
@@ -26,10 +26,10 @@ string ItemsMagicos:: getNombre(){
 
 void ItemsMagicos:: aumentarDaño(){
     daño += 5; //aumenta el daño real del arma
-    return ;  //aumenta el daño segun alguna condicion 
+    return ; 
 }
 
-//modifio daño segun la condicion
+//modifico daño segun la condicion
 void ItemsMagicos :: setDaño(int nuevoDaño){
     daño= nuevoDaño;
 

@@ -16,10 +16,10 @@ public:
     
     Armascombate(string nombre, string tipodeArma,  int daño, int modelo, int peso, string compatibilidad);
 
-    virtual void golpeEspecial()=0 ; //cada arma puede tener su proopio golpe especial
+    virtual void golpeEspecial()=0 ; //cada arma puede tener su propio golpe especial
     
     void setDaño(int nuevodaño);
-    bool compatible(string compatibilidad);
+    bool compatible(string compatibilidad); //baja el poder de daño si el arma no es compatible con mago o guerrero
     
     int getpeso() override;
     int getDaño()override;

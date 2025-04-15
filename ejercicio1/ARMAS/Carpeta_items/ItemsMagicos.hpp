@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class ItemsMagicos: public Armas//clase abstracata 
+class ItemsMagicos: public Armas //clase abstracata 
 {
 private:
     string nombre;
@@ -17,7 +17,7 @@ private:
 public:
  
     //metodo virtual puro de esta clase abstracta 
-    virtual void aplicarEfectoMagico()=0; //le aplico 
+    virtual void aplicarEfectoMagico()=0; 
 
     ItemsMagicos(string nombre, string tipodeArma, int daño, int peso, int modelo);
     

@@ -11,7 +11,7 @@ class LibrodeHechizos: public ItemsMagicos
 private:
     map<string,int> hechizos; //hechizo y daño
     int magia; //magia de hechizos
-    string compatibilidad; //con guerrero baja daño
+    string compatibilidad; //guerrero baja daño
     string hechizoLanzado; //lo uso en efecto magico
     int durabilidad; //se gasta dsp de usos 
 
@@ -20,15 +20,15 @@ private:
 public:
     LibrodeHechizos(string nombre,string compatibilidad, int modelo);
 
-    bool personaje_compatible(string compatibilidad); //me dice si es mago lo puedo usar, sino le resta daño q hace 
+    bool personaje_compatible(string compatibilidad); //mago
     int magia_actual();
-    int lanzarHechizo(); //baja la durabeilidad
-    void cambiarHechizo(string nombre); //elijo el hechuzo que quiero
+    int lanzarHechizo(); //baja la durabilidad
+    void cambiarHechizo(string nombre); //elijo el hechizo que quiero
     int recargar_magia();
     int durabilidad_libro(); //se va deteriorando por cada uso
     int reparar_libro();//lo reparo
 
-    void aplicarEfectoMagico() override; //digo q efecto lance cuando lanzo hechizo baja magia y baja durabilidad
+    void aplicarEfectoMagico() override; //digo q efecto lance baja magia y baja durabilidad
 
 
 

@@ -14,8 +14,8 @@ protected:
 public:
     Magos(string nombre, int nivel, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS);
     
-    virtual void Escudomagico()=0; //me cubro del daño , armadura especial para guerreros. 
-    //cada mago tiene su propio escudo magico
+    virtual void Escudomagico()=0; //me cubro del daño, cada mago tiene su propio escudo magico
+    
     
     void setArma_1(shared_ptr<Armas> arma);
     void setArma_2(shared_ptr<Armas> arma);
@@ -30,7 +30,7 @@ public:
     void curar() override;
     void mostrarInfo() override; 
     void setDaño_obtenido(int daño) override;
-    
+
     ~Magos()= default;
 };
 

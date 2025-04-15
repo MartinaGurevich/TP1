@@ -4,7 +4,7 @@
 using namespace std;
 
 Pocion :: Pocion(string nombre,string compatibilidad, int modelo): 
-    ItemsMagicos(nombre, "Pocion", 15, 1 , modelo),
+    ItemsMagicos(nombre, "Pocion", 15, 1 , modelo), //15 de daño base
     veneno("veneno"),
     dosisRestantes(10),
     poder(15),

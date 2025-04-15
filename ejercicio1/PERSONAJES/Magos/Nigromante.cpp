@@ -7,7 +7,7 @@ nigromacia(30){}
 void Nigromante:: Escudomagico(){
     daño_obtenido= max(0,daño_obtenido - nigromacia);
     vida -= daño_obtenido;
-    cout <<"PERO...."<<getNombre() <<" activa su escudo de Hechicero y el daño ejercido se reduce a  : "<< daño_obtenido<< endl;
+    cout <<"PERO...."<<getNombre() <<" activa su escudo de Nigromante y el daño ejercido se reduce a  : "<< daño_obtenido<< endl;
 
 }
 

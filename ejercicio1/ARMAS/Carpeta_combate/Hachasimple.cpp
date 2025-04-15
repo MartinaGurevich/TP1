@@ -2,10 +2,9 @@
 
 //constructor hacha
 Hachasimple:: Hachasimple(string nombre, string compatibilidad,int modelo, int peso): 
-    Armascombate(nombre, "Hachasimple", 20, modelo, peso, compatibilidad),
+    Armascombate(nombre, "Hachasimple", 20, modelo, peso, compatibilidad), //20 de daño base
     filo(20), //cuanto lastima
     desgaste(50){}
-    //compatibilidad(compatibilidad){}
 
 void Hachasimple:: afilar(){
     if (filo==0){
@@ -26,32 +25,6 @@ void Hachasimple:: usar(){
     }
 }
 
-
-// bool Hachasimple:: compatible(string compatibilidad){
-//         if(compatibilidad=="Guerrero"){
-//             cout<<"Arma compatible para un Gurerrero"<<endl;
-//             return true;
-//         }else{
-//             cout<<"Item NO compatible, daño reducido."<<endl;
-//             //disminuye el daño en 5 puntos si es un Guerrero.
-//             int dañoActual= getDaño();
-//             setDaño(dañoActual - 5);
-    
-//             cout<<"El Hachasimple daña "<<getDaño()<< " porque usted es Mago."<<endl;
-    
-//             return false;
-//         }
-//     }
-
-
-// bool Hachasimple:: esCritico(){
-//     if(filo==20 && desgaste >= 45){
-//         cout<<"Daño CRITICO. El hacha bien afilada!"<<endl;
-//         return true;
-//     }
-//     return false;
-// }
-
 void Hachasimple :: golpeEspecial(){
     usar(); //se desgaste porque la uso
     
@@ -62,9 +35,9 @@ void Hachasimple :: golpeEspecial(){
         Dañoespecial+= 20 ; //le hace mas daño por ser Critico, bien afilado
         cout<<"¡Daño especial CRITICO! "<<endl;
     }else{
-        cout<<"Golpe especial normal."<<endl;
+        cout<<"Golpe normal."<<endl;
     }
-    int dañoTotal= dañobase+ Dañoespecial;
+    int dañoTotal= dañobase + Dañoespecial;
     cout<< "Daño total es: "<< dañoTotal<<endl;
 }
 

@@ -8,7 +8,7 @@ void Mercenario:: ArmaduraEspecial(){
     daño_obtenido= max(0,daño_obtenido - Defensa_oportunista);
     //setDaño_obtenido(daño_obtenido - escudo);
     vida -= daño_obtenido;
-    cout <<"PERO...."<<getNombre() <<" activa su escudo de Conjurador y el daño ejercido se reduce a  : "<< daño_obtenido<< endl;
+    cout <<"PERO...."<<getNombre() <<" activa su escudo de Mercenario y el daño ejercido se reduce a  : "<< daño_obtenido<< endl;
 
 
 }

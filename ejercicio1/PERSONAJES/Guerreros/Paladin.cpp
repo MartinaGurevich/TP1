@@ -8,7 +8,7 @@ void Paladin:: ArmaduraEspecial(){
     daño_obtenido= max(0,daño_obtenido - Luz_purificadora);
     //setDaño_obtenido(daño_obtenido - escudo);
     vida -= daño_obtenido;
-    cout <<"PERO...."<<getNombre() <<" activa su escudo de Conjurador y el daño ejercido se reduce a  : "<< daño_obtenido<< endl;
+    cout <<"PERO...."<<getNombre() <<" activa su escudo de Paladin y el daño ejercido se reduce a  : "<< daño_obtenido<< endl;
 
 
 }
