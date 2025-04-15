@@ -21,38 +21,38 @@ using namespace std;
 int main(){
 //PRUEBO ARMAS PRIMERO
 
-    //CREO ESPADA
-    Espada Miespada("ESPADA", "Caballero", 2005, 10);
+    //CREO ESPADA y LIBRO
+    shared_ptr<Armas> libro = make_shared<LibrodeHechizos>("Libro de Hechizos", "Mago", 2023);
+    shared_ptr<Armas> espada = make_shared<Espada>("Espada", "Caballero", 2005, 10);
 
     //muestros datos
-    cout<<"-- DATOS DE LA ESPADA--"<<endl;
-    cout<<"--> NOMBRE: "<<Miespada.getNombre()<<endl;
-    cout<<"--> TIPO DE ARMA: "<<Miespada.getTipodearma()<<endl;
-    cout<<"--> MODELO: "<<Miespada.getModelo()<<endl;
-    cout<<"--> PESO: "<<Miespada.getpeso()<<endl;
-    cout<<"--> DAÑO BASE: "<<Miespada.getDaño()<<endl;
-    //cout<<"--> COMPATIBILIDAD: "<<Miespada.compatible("Guerrero")<<endl;
+    cout<<" \n ========= DATOS DE LA ESPADA =========="<<endl;
+    cout<<"--> NOMBRE: "<<espada->getNombre()<<endl;
+    cout<<"--> TIPO DE ARMA: "<<espada-> getTipodearma()<<endl;
+    cout<<"--> MODELO: "<<espada-> getModelo()<<endl;
+    cout<<"--> PESO: "<<espada-> getpeso()<<endl;
+    cout<<"--> DAÑO BASE: "<<espada-> getDaño()<<endl;
     cout<<endl;
 
     //CREO LIBRO DE HECHIZOS
     LibrodeHechizos Milibro("Libro de Hechizos", "Mago", 2023);
         //muestros datos
-    cout<<"-- DATOS DEL LIBRO--"<<endl;
-    cout<<"--> NOMBRE: "<<Milibro.getNombre()<<endl;
-    cout<<"--> TIPO DE ARMA: "<<Milibro.getTipodearma()<<endl;
-    cout<<"--> MODELO: "<<Milibro.getModelo()<<endl;
-    cout<<"--> PESO: "<<Milibro.getpeso()<<endl;
-    cout<<"--> DAÑO BASE: "<<Milibro.getDaño()<<endl;
+    cout<<"========= DATOS DEL LIBRO DE HECHIZOS =========="<<endl;
+    cout<<"--> NOMBRE: "<<libro -> getNombre()<<endl;
+    cout<<"--> TIPO DE ARMA: "<<libro -> getTipodearma()<<endl;
+    cout<<"--> MODELO: "<<libro -> getModelo()<<endl;
+    cout<<"--> PESO: "<<libro -> getpeso()<<endl;
+    cout<<"--> DAÑO BASE: "<<libro -> getDaño()<<endl;
     //cout<<"--> COMPATIBILIDAD: "<<Milibro.personaje_compatible("Mago")<<endl;
     cout<<endl;
 
 //PRUEBA DE PERSONAJES PORTANDO ARMAS
-    shared_ptr<Armas> libro = make_shared<LibrodeHechizos>("Libro de Hechizos", "Mago", 2023);
-    shared_ptr<Armas> espada = make_shared<Espada>("ESPADA", "Caballero", 2005, 10);
 
     //compatibilidad
-    cout<<" \n ----- VERIFICO COMPATIBILIDAD EN ARMAS -----\n";
+    cout<<" \n ===============  VERIFICO COMPATIBILIDAD EN ARMAS =============== \n";
+    cout<<"Compatibilidad para que un mago use libro de hechizos: \n";
     dynamic_cast<LibrodeHechizos*>(libro.get())->personaje_compatible("Mago");
+    cout<<"Compatibilidad para que un mago use espada: \n";
     dynamic_cast<Espada*>(espada.get())->compatible("Mago");
 
     //creo personajes
@@ -60,19 +60,19 @@ int main(){
     Gladiador gladiador ("Luis", {espada, nullptr}); //gladiador solo con espada
 
     //muestro info
-    cout<<" ---------------- INFORMACION PERSONAJES ------------"<<endl;
+    cout<<"\n ============= INFORMACION PERSONAJES =============="<<endl;
     brujo.mostrarInfo();
     cout<<endl;
     gladiador.mostrarInfo();
 
     //pruebo individualmente sus armas
-    cout<<"--> EL BRUJO LANZA UN HECHIZO ESPECIFICO: "<<endl;
+    cout<<"\n =============  EL BRUJO LANZA UN HECHIZO ESPECIFICO: =============="<<endl;
     auto libro_ptr= dynamic_cast<LibrodeHechizos*>(brujo.getArmas().first.get());
 
     libro_ptr-> cambiarHechizo("Explosion");
     libro_ptr-> lanzarHechizo();
 
-    cout<<"--> EL GLADIADOR USA SU ESPADA (y la desafila): "<<endl;
+    cout<<" \n ============== EL GLADIADOR USA SU ESPADA (y la desafila): =============="<<endl;
     auto espada_ptr= dynamic_cast<Espada*>(gladiador.getArmas().first.get());
 
     for(int i =0; i<3; i++){
@@ -80,19 +80,19 @@ int main(){
         cout<< "Filo restante de la espada: "<< espada_ptr->getFilo()<<endl; //muestra cuanto filo le queda
     }
 
-    cout<<"\n ------ ESPADA del galdiador con su golpe especial (aumenta su longitud) ----------\n";
+    cout<<"\n ==============ESPADA del galdiador con su golpe especial (aumenta su longitud) ============== \n";
     espada_ptr->golpeEspecial();
 
     //SIMULACION DE COMBATE
-    cout<<"\n ------ COMBATE: gladiador ataca a brujo ----------\n";
+    cout<<"\n ============== COMBATE: gladiador ataca a brujo ==============\n";
     gladiador.atacar(brujo);
 
-    cout<<"\n ------ COMBATE:Brujo ataca Gladiador ----------\n";
+    cout<<"\n ============== COMBATE: Brujo ataca  a Gladiador ==============\n";
     brujo.atacar(gladiador);
 
 
     //info final 
-    cout<<"\n --- INFO FINAL ----\n";
+    cout<<"\n ======= INFO FINAL ======\n";
     brujo.mostrarInfo();
     cout<<endl;
     gladiador.mostrarInfo();

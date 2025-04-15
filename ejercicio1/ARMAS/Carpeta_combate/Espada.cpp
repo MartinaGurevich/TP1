@@ -8,7 +8,7 @@ filo(20){} //aumenta la longitd 20 cm
 void Espada:: golpeEspecial(){ // se usa el aumneto de longtyd 
     int daño= getDaño();
     setDaño(daño + Aumenta_longitud);
-    cout<<"el daño generado es: "<<getDaño()<<endl;
+    cout<<"Ahora el daño que genera "<< nombre <<" es: "<<getDaño()<<endl;
 
 }
 

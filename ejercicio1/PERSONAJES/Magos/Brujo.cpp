@@ -6,9 +6,8 @@ brujeria(10){}
 
 void Brujo:: Escudomagico(){
     daño_obtenido= max(0,daño_obtenido - brujeria);
-    //setDaño_obtenido(daño_obtenido - escudo);
     vida -= daño_obtenido;
-    cout <<"PERO...."<<getNombre() <<" activa su escudo de Conjurador y el daño ejercido se reduce a  : "<< daño_obtenido<< endl;
+    cout <<" PERO...."<<getNombre() <<" activa su escudo de Brujo (con brujeria) y el daño ejercido se reduce a  : "<< daño_obtenido<< endl;
 
 
 }

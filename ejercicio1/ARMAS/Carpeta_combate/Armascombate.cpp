@@ -11,8 +11,9 @@ Armascombate:: Armascombate(string nombre, string tipodeArma,  int daño, int mo
     compatibilidad(compatibilidad)
 {
     if(modelo <= 2010) {  //cuadno es mas grande que las nuevas daña mas
+        cout<<"¡ ATENCION ! El daño incial de "<<getNombre()<<" es: "<<getDaño()<<endl;
         aumentarDaño();
-        cout<<getNombre()<<"--> Es un Arma con experiencia... modelo: "<<modelo<<" .Aumenta su daño a:"<<getDaño()<<endl;
+        cout<<"Pero, "<<getNombre()<<"--> Es un Arma con experiencia... modelo: "<<modelo<<" .Aumenta su daño a:"<<getDaño()<<endl;
     }
 }
 
@@ -22,12 +23,12 @@ bool Armascombate:: compatible(string compatibilidad){
             cout<<"Arma compatible para un Gurerrero"<<endl;
             return true;
         }else{
-            cout<<"NO compatible, daño reducido."<<endl;
+            cout<<getNombre()<<" no es compatible para un mago, daño reducido."<<endl;
             //disminuye el daño en 5 puntos si es un Guerrero.
             int dañoActual= getDaño();
             setDaño(dañoActual - 5);
     
-            cout<<"--> El  daño es:  "<<getDaño()<< " porque usted es Mago."<<endl;
+            cout<<"--> El daño ahora es:  "<<getDaño()<<endl;
     
             return false;
         }

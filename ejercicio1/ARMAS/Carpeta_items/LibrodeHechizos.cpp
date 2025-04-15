@@ -16,7 +16,7 @@ LibrodeHechizos:: LibrodeHechizos(string nombre,string compatibilidad, int model
 
 bool LibrodeHechizos:: personaje_compatible(string compatibilidad){
     if(compatibilidad=="Mago"){
-        cout<<"Item compatible para un Mago"<<endl;
+        cout<<"--> Item compatible para un Mago"<<endl;
         return true;
     }else{
         cout<<"Item NO compatible, daño reducido."<<endl;

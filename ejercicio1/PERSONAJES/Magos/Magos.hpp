@@ -9,7 +9,6 @@ protected:
     string nombre;    
     int vida;
     pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS;
-    //int escudo; //me cubre del daño, lo uso en escudomagico
     int daño_obtenido;
     int nivel; //nivel del personaje
 public:
@@ -31,8 +30,7 @@ public:
     void curar() override;
     void mostrarInfo() override; 
     void setDaño_obtenido(int daño) override;
-    //void getDaño_obtenido() override;
-
+    
     ~Magos()= default;
 };
 

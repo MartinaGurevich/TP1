@@ -10,3 +10,7 @@ main1: main1.cpp
 		PERSONAJES/Guerreros/Guerreros.cpp \
 		PERSONAJES/Guerreros/Gladiador.cpp \
 		-o main1
+
+#limpio archivo inmediato
+clean: 
+	rm -f *.o main1

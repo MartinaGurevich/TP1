@@ -67,10 +67,10 @@ void Guerreros:: atacar(Personajes& objetivo_de_ataque){
 
 void Guerreros::Recibir_daño(){//me saca vida
         ArmaduraEspecial(); //disminutye daño
-        cout<<nombre<<" -->  recibe  "<< daño_obtenido<< " puntos de daño"<<endl;
+        cout<<nombre<<" -->  Recibe  "<< daño_obtenido<< " puntos de daño"<<endl;
         if (vida < 0) vida=0;
         curar();
-        cout<<nombre<<"tiene  "<< vida<< " puntos de vida restante"<<endl;
+        cout<<nombre<<" tiene  "<< vida<< " puntos de vida restante"<<endl;
 
 }
 
@@ -85,12 +85,12 @@ void Guerreros:: mostrarInfo() {
     if(ARMAS.first){
         cout<<"--> Primer arma que tiene "<<getNombre()<< " es : "<<ARMAS.first->getNombre()<<endl;
     }else{
-        cout<<" --> No tiene primer arma"<<endl;
+        cout<<" --> Primer arma que tiene "<<getNombre()<<": NO TIENE PRIMER ARMA"<<endl;
     }
     if(ARMAS.second){
         cout<<"--> Segunda arma que tiene "<<getNombre()<< " es : "<<ARMAS.second->getNombre()<<endl;
     }else{
-        cout<<getNombre()<<" --> No tiene Segunda arma"<<endl;
+        cout<<" --> Segunda arma que tiene "<<getNombre()<<": NO TIENE SEGUNDA ARMA"<<endl;
     }
     cout<<"--> Nivel de "<<getNombre()<< " es : "<<nivel<<endl;
     cout<<"--> Vida restante de "<<getNombre()<< " es : "<<getSalud()<<endl;

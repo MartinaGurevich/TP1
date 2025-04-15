@@ -40,7 +40,7 @@ void Magos:: atacar(Personajes& objetivo_de_ataque){
     if(ARMAS.first) {
         int daño1= ARMAS.first->getDaño();
         DañoTotal += daño1;
-        cout<<"- "<< nombre<< "  Ataca con "<<ARMAS.first->getNombre()
+        cout<<"- "<< nombre<< "  Ataca con su primer arma:  "<<ARMAS.first->getNombre()
             <<", causa "<<daño1<<" puntos de daño."<<endl;
     }
     //si tiene el arma dos.
@@ -48,7 +48,7 @@ void Magos:: atacar(Personajes& objetivo_de_ataque){
         int daño2= ARMAS.second->getDaño();
         DañoTotal+= daño2;
 
-        cout<<"-"<<  nombre<< " Ataca con "<<ARMAS.second->getNombre()
+        cout<<"-"<<  nombre<< " Ataca con su segunda arma: "<<ARMAS.second->getNombre()
             <<", causa "<<daño2<< " de daño."<<endl;
     }
     cout<<"--> "<<  nombre<<" en total causa "<<DañoTotal<<" puntos de daño a "<<objetivo_de_ataque.getNombre()<<endl;
@@ -79,12 +79,12 @@ void Magos:: mostrarInfo() {
     if(ARMAS.first){
         cout<<"--> Primer arma que tiene "<<getNombre()<< " es : "<<ARMAS.first->getNombre()<<endl;
     }else{
-        cout<<" --> No tiene primer arma"<<endl;
+        cout<<" --> Primer arma que tiene "<<getNombre()<<": NO TIENE PRIMER ARMA"<<endl;
     }
     if(ARMAS.second){
         cout<<"--> Segunda arma que tiene "<<getNombre()<< " es : "<<ARMAS.second->getNombre()<<endl;
     }else{
-        cout<<getNombre()<<" --> No tiene Segunda arma"<<endl;
+        cout<<" --> Segunda arma que tiene "<<getNombre()<<": NO TIENE SEGUNDA ARMA"<<endl;
     }
     cout<<"--> Nivel de "<<getNombre()<< " es : "<<nivel<<endl;
     cout<<"--> Vida restante de "<<getNombre()<< " es : "<<getSalud()<<endl;
