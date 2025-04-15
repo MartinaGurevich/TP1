@@ -14,6 +14,7 @@ public:
     void golpeEspecial() override; //se usan los dos filos de cada ala del hacha potenciados 
     int afilar(); //la afilo
     int golpe();
+    int getFilo();
 
     
     ~Espada()= default;

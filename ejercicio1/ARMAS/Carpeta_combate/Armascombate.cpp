@@ -64,7 +64,7 @@ int Armascombate :: getModelo(){
 }
 
 string Armascombate:: getTipodearma(){
-    if (tipodeArma=="Baston" ||tipodeArma=="LibrodeHechizos" ||tipodeArma=="Pocion" ||tipodeArma=="Amuleto" ){
+    if (tipodeArma=="Baston" ||tipodeArma=="Libro de Hechizos" ||tipodeArma=="Pocion" ||tipodeArma=="Amuleto" ){
         return "Item Magico";
     }
     return "Arma de Combate";

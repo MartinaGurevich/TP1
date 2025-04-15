@@ -68,3 +68,5 @@ void Pocion:: verificarvencimiento(){
         vencida=true;
     }
 }
+
+

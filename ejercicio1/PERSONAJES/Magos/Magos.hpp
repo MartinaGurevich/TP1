@@ -1,4 +1,4 @@
-#include "InterfazPersonajes.hpp"
+#include "../InterfazPersonajes.hpp"
 #include <memory>
 #pragma once
 

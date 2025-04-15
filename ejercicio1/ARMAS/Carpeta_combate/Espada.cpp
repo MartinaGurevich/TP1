@@ -26,4 +26,8 @@ int Espada:: golpe(){
     return daño;
 }
 
+int Espada:: getFilo(){
+    return filo;
+}
+
 
