@@ -5,13 +5,12 @@ Guerreros (nombre,10, ARMAS), //nombre, nuvel y arma
 Defensa_oportunista(15){}
 
 void Mercenario:: ArmaduraEspecial(){
-    daño_obtenido= max(0,daño_obtenido - Defensa_oportunista);
-    //setDaño_obtenido(daño_obtenido - escudo);
-    vida -= daño_obtenido;
+    usar_defensa();
     cout <<"PERO...."<<getNombre() <<" activa su escudo de Mercenario y el daño ejercido se reduce a  : "<< daño_obtenido<< endl;
-
-
 }
 
-
+void Mercenario:: usar_defensa(){
+    daño_obtenido= max(0,daño_obtenido - Defensa_oportunista);
+    vida -= daño_obtenido;
+}
 

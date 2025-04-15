@@ -8,7 +8,8 @@ private:
 public:
     Gladiador(string nombre,  pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS);
 
-    void ArmaduraEspecial() override; 
+    void ArmaduraEspecial() override;
+    void usar_resistencia(); 
 
     ~Gladiador()= default;
 };

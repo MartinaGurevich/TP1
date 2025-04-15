@@ -8,7 +8,8 @@ private:
 public:
     Hechicero(string nombre,  pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS);
 
-    void Escudomagico() override; 
+    void Escudomagico() override;
+    void hechizoAudaz(); 
 
     ~Hechicero()= default;
 };

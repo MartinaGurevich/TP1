@@ -5,10 +5,13 @@ Magos (nombre,50, ARMAS),
 nigromacia(30){}
 
 void Nigromante:: Escudomagico(){
-    daño_obtenido= max(0,daño_obtenido - nigromacia);
-    vida -= daño_obtenido;
+    control_daño();
     cout <<"PERO...."<<getNombre() <<" activa su escudo de Nigromante y el daño ejercido se reduce a  : "<< daño_obtenido<< endl;
 
 }
 
+void Nigromante:: control_daño(){
+    daño_obtenido= max(0,daño_obtenido - nigromacia);
+    vida -= daño_obtenido;
+}
 

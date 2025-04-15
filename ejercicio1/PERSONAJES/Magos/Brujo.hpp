@@ -9,6 +9,7 @@ public:
     Brujo(string nombre,  pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS);
 
     void Escudomagico() override; 
+    void brujeriaMagica();
 
     ~Brujo()= default;
 };
