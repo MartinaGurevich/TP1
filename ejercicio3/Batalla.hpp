@@ -14,10 +14,10 @@ enum class movimiento{
 
 
 
-shared_ptr<Personajes> rival_Aleatorio(); // jugador 2 se le asigna un nombre y arma
-string movimiento_string(movimiento mov);
-movimiento Ataque_aleatorio();
-string getNombreArma(shared_ptr<Personajes> p); 
+unique_ptr<Personajes> rival_Aleatorio(); // jugador 2 se le asigna un nombre y arma
+string movimiento_string(movimiento mov); //convierte el enum mov en string
+movimiento Ataque_aleatorio();// devuelve un ataque aleatorio
+string getNombreArma(const unique_ptr<Personajes>& p);  //devuelve nombre de la primer arma del personaje 
 
 
 

@@ -1,7 +1,7 @@
 #include "Hechicero.hpp"
 
-Hechicero:: Hechicero(string nombre, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS): //ver lo de nvel 
-Magos (nombre,40, ARMAS),
+Hechicero:: Hechicero(string nombre, pair<unique_ptr<Armas>, unique_ptr<Armas>> ARMAS): //ver lo de nvel 
+Magos (nombre,40, std:: move(ARMAS)),
 escudo_hechizo(20){}
 
 void Hechicero:: Escudomagico(){

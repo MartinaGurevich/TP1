@@ -1,7 +1,7 @@
 #include "Caballero.hpp"
 
-Caballero:: Caballero(string nombre, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS): 
-Guerreros (nombre,10, ARMAS), //nombre, nuvel y arma
+Caballero:: Caballero(string nombre, pair<unique_ptr<Armas>,unique_ptr<Armas>> ARMAS): 
+Guerreros (nombre,10, std:: move(ARMAS)), //nombre, nuvel y arma
 altaDefensa(10){}
 
 void Caballero:: ArmaduraEspecial(){

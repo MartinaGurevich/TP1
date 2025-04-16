@@ -3,27 +3,27 @@
 
 using namespace std;
 
-shared_ptr<Armas> PersonajeFactory::Creacion_Arma(tipoArma arma){
+unique_ptr<Armas> PersonajeFactory::Creacion_Arma(tipoArma arma){
         switch (arma)
         {
         case tipoArma::baston:
-            return make_shared<Baston>("Baston", "Mago", 2022);
+            return make_unique<Baston>("Baston", "Mago", 2022);
         case tipoArma::librodeHechizos:
-            return make_shared<LibrodeHechizos>("LibrodeHerchizos", "Mago", 2020);
+            return make_unique<LibrodeHechizos>("LibrodeHerchizos", "Mago", 2020);
         case tipoArma::pocion:
-            return make_shared<Pocion>("Pocion", "Mago", 2024);
+            return make_unique<Pocion>("Pocion", "Mago", 2024);
         case tipoArma::amuleto:
-            return make_shared<Amuleto>("Amuleto", "Mago", 2020);
+            return make_unique<Amuleto>("Amuleto", "Mago", 2020);
         case tipoArma::espada:
-            return make_shared<Espada>("Espada", "Guerrero", 2024,10); 
+            return make_unique<Espada>("Espada", "Guerrero", 2024,10); 
         case tipoArma::garrote:
-            return make_shared<Garrote>("Garrote", "Guerrero", 2025,10,20); 
+            return make_unique<Garrote>("Garrote", "Guerrero", 2025,10,20); 
         case tipoArma::hachadoble:
-            return make_shared<Hachadoble>("Hachadoble", "Guerrero", 2025,10);
+            return make_unique<Hachadoble>("Hachadoble", "Guerrero", 2025,10);
         case tipoArma::hachasimple:
-            return make_shared<Hachasimple>("Hachasimple", "Guerrero", 2020,5);
+            return make_unique<Hachasimple>("Hachasimple", "Guerrero", 2020,5);
         case tipoArma::lanza:
-            return make_shared<Lanza>("Lanza", "Guerrero", 2025,3); //nombre,compatibilidad , modelo y peso
+            return make_unique<Lanza>("Lanza", "Guerrero", 2025,3); //nombre,compatibilidad , modelo y peso
         default:
             cout<<"No se encontro arma.\n";
             return nullptr;
@@ -31,53 +31,55 @@ shared_ptr<Armas> PersonajeFactory::Creacion_Arma(tipoArma arma){
     
 } 
 
-shared_ptr<Personajes> PersonajeFactory:: Creacion_Personaje(Tipopersonaje personaje){
+unique_ptr<Personajes> PersonajeFactory:: Creacion_Personaje(Tipopersonaje personaje){
+    pair<unique_ptr<Armas>, unique_ptr<Armas>> armas_null= {nullptr,nullptr};
+
     switch (personaje)
     {
     case Tipopersonaje:: brujo:
-        return make_shared<Brujo>("Brujo", make_pair(nullptr,nullptr));
+        return make_unique<Brujo>("Brujo", make_pair(nullptr,nullptr));
     case Tipopersonaje:: conjurador:
-        return make_shared<Conjurador>("Conjurador", make_pair(nullptr,nullptr));
+        return make_unique<Conjurador>("Conjurador", make_pair(nullptr,nullptr));
     case Tipopersonaje:: hechicero:
-        return make_shared<Hechicero>("Hechicero", make_pair(nullptr,nullptr));
+        return make_unique<Hechicero>("Hechicero", make_pair(nullptr,nullptr));
     case Tipopersonaje:: nigromante:
-        return make_shared<Nigromante>("Nigromante", make_pair(nullptr,nullptr));
+        return make_unique<Nigromante>("Nigromante", make_pair(nullptr,nullptr));
     case Tipopersonaje:: barbaro:
-        return make_shared<Barbaro>("Barbaro", make_pair(nullptr,nullptr));
+        return make_unique<Barbaro>("Barbaro", make_pair(nullptr,nullptr));
     case Tipopersonaje:: paladin:
-        return make_shared<Paladin>("Paladin", make_pair(nullptr,nullptr));
+        return make_unique<Paladin>("Paladin", make_pair(nullptr,nullptr));
     case Tipopersonaje:: caballero:
-        return make_shared<Caballero>("Caballero", make_pair(nullptr,nullptr));
+        return make_unique<Caballero>("Caballero", make_pair(nullptr,nullptr));
     case Tipopersonaje:: mercenario:
-        return make_shared<Mercenario>("Mercenario", make_pair(nullptr,nullptr));
+        return make_unique<Mercenario>("Mercenario", make_pair(nullptr,nullptr));
     case Tipopersonaje:: gladiador:
-        return make_shared<Gladiador>("Gladiador", make_pair(nullptr,nullptr));
+        return make_unique<Gladiador>("Gladiador", make_pair(nullptr,nullptr));
     default:
         cout<<"No se pudo encontar personaje ";
         return nullptr;
     }
 }
-shared_ptr<Personajes> PersonajeFactory::Creacion_Personaje_Arma(Tipopersonaje personaje, pair<shared_ptr<Armas>, shared_ptr<Armas>> armas){
+unique_ptr<Personajes> PersonajeFactory::Creacion_Personaje_Arma(Tipopersonaje personaje, pair<unique_ptr<Armas>, unique_ptr<Armas>> armas){
     switch (personaje)
     {
     case Tipopersonaje:: brujo:
-        return make_shared<Brujo>("Brujo",armas);
+        return make_unique<Brujo>("Brujo",std::move (armas));
     case Tipopersonaje:: conjurador:
-        return make_shared<Conjurador>("Conjurador",armas);
+        return make_unique<Conjurador>("Conjurador",std::move (armas));
     case Tipopersonaje:: hechicero:
-        return make_shared<Hechicero>("Hechicero",armas);
+        return make_unique<Hechicero>("Hechicero",std::move (armas));
     case Tipopersonaje:: nigromante:
-        return make_shared<Nigromante>("Nigromante",armas);
+        return make_unique<Nigromante>("Nigromante",std::move (armas));
     case Tipopersonaje:: barbaro:
-        return make_shared<Barbaro>("Barbaro", armas);
+        return make_unique<Barbaro>("Barbaro", std::move (armas));
     case Tipopersonaje:: paladin:
-        return make_shared<Paladin>("Paladin", armas);
+        return make_unique<Paladin>("Paladin", std::move (armas));
     case Tipopersonaje:: caballero:
-        return make_shared<Caballero>("Caballero", armas);
+        return make_unique<Caballero>("Caballero", std::move (armas));
     case Tipopersonaje:: mercenario:
-        return make_shared<Mercenario>("Mercenario",armas);
+        return make_unique<Mercenario>("Mercenario",std::move (armas));
     case Tipopersonaje:: gladiador:
-        return make_shared<Gladiador>("Gladiador", armas);
+        return make_unique<Gladiador>("Gladiador", std::move (armas));
     default:
         cout<<"No se pudo encontar personaje con armas ";
         return nullptr;

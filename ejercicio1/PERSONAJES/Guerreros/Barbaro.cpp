@@ -1,7 +1,7 @@
 #include "Barbaro.hpp"
 
-Barbaro:: Barbaro(string nombre, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS): 
-Guerreros (nombre,20, ARMAS), //nombre, nuvel y arma
+Barbaro:: Barbaro(string nombre, pair<unique_ptr<Armas>, unique_ptr<Armas>> ARMAS): 
+Guerreros (nombre,20, std:: move(ARMAS)), //nombre, nuvel y arma
 furia(20){}
 
 void Barbaro:: ArmaduraEspecial(){

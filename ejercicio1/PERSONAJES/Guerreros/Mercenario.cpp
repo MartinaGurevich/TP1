@@ -1,7 +1,7 @@
 #include "Mercenario.hpp"
 
-Mercenario:: Mercenario(string nombre, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS): 
-Guerreros (nombre,10, ARMAS), //nombre, nuvel y arma
+Mercenario:: Mercenario(string nombre, pair<unique_ptr<Armas>, unique_ptr<Armas>> ARMAS): 
+Guerreros (nombre,10, std:: move(ARMAS)), //nombre, nuvel y arma
 Defensa_oportunista(15){}
 
 void Mercenario:: ArmaduraEspecial(){

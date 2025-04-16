@@ -1,7 +1,7 @@
 #include "Gladiador.hpp"
 
-Gladiador:: Gladiador(string nombre, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS): 
-Guerreros (nombre,56, ARMAS), //nombre, nuvel y arma
+Gladiador:: Gladiador(string nombre, pair<unique_ptr<Armas>, unique_ptr<Armas>> ARMAS): 
+Guerreros (nombre,56, std:: move(ARMAS)), //nombre, nuvel y arma
 Resistencia(20){}
 
 void Gladiador:: ArmaduraEspecial(){

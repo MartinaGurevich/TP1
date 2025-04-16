@@ -69,9 +69,9 @@ enum class Tipopersonaje{
 class PersonajeFactory
 {
 public:
-    static shared_ptr<Armas> Creacion_Arma(tipoArma arma); 
-    static shared_ptr<Personajes> Creacion_Personaje(Tipopersonaje personaje); 
-    static shared_ptr<Personajes> Creacion_Personaje_Arma(Tipopersonaje personaje, pair<shared_ptr<Armas>, shared_ptr<Armas>> armas); 
+    static unique_ptr<Armas> Creacion_Arma(tipoArma arma); 
+    static unique_ptr<Personajes> Creacion_Personaje(Tipopersonaje personaje); 
+    static unique_ptr<Personajes> Creacion_Personaje_Arma(Tipopersonaje personaje, pair<unique_ptr<Armas>, unique_ptr<Armas>> armas); 
 };
 
 //funcion para eleccion aleatoria de magos(3 a 7)

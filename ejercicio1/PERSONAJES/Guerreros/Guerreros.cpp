@@ -1,19 +1,19 @@
 #include "Guerreros.hpp"
 
-Guerreros:: Guerreros(string nombre,int nivel, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS):
-nombre(nombre), vida(100), ARMAS(ARMAS), daño_obtenido(0), nivel(nivel) {}
+Guerreros:: Guerreros(string nombre,int nivel, pair<unique_ptr<Armas>, unique_ptr<Armas>> ARMAS):
+nombre(nombre), vida(100), ARMAS(std:: move(ARMAS)), daño_obtenido(0), nivel(nivel) {}
 
 //SETTERS
 void Guerreros:: setDaño_obtenido(int daño){ 
     daño_obtenido = daño;  //modifico el daño que obtuve
 }
 
-void Guerreros:: setArma_1(shared_ptr<Armas> arma){
-    ARMAS.first= arma;
+void Guerreros:: setArma_1(unique_ptr<Armas> arma){
+    ARMAS.first= std:: move(arma);
 }
 
-void Guerreros:: setArma_2(shared_ptr<Armas> arma){
-    ARMAS.second= arma;
+void Guerreros:: setArma_2(unique_ptr<Armas> arma){
+    ARMAS.second= std:: move(arma);
 }
 
 //metodo de la abstracta 
@@ -24,7 +24,7 @@ void Guerreros:: aumentar_vida(int cantidad){
 }
 
 //METODOS DE LA INTERFAZ
-pair<shared_ptr<Armas>,shared_ptr<Armas>> Guerreros:: getArmas() const{ //le doy la posibilidad a todos los persoajes de tener dos armas
+const pair<unique_ptr<Armas>,unique_ptr<Armas>>& Guerreros:: getArmas() const{ //le doy la posibilidad a todos los persoajes de tener dos armas
     return ARMAS;
 } 
 

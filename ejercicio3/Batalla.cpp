@@ -1,6 +1,6 @@
 #include "Batalla.hpp"
 
-shared_ptr<Personajes> rival_Aleatorio(){
+unique_ptr<Personajes> rival_Aleatorio(){
 
     vector<Tipopersonaje> personajes_disponibles= {
         Tipopersonaje::brujo,
@@ -17,16 +17,15 @@ shared_ptr<Personajes> rival_Aleatorio(){
     int personaje_eljido= rand() % personajes_disponibles.size(); //elije 1 personaje
     Tipopersonaje tipo= personajes_disponibles[personaje_eljido];
 
-    int cant_armas= rand() % 2 + 1; //1 o 2 armaas , pero 2 no va apoder tener 
-    shared_ptr<Armas> arma1= nullptr; //se guarda solo una
+    int cant_armas= rand() % 2 + 1; //1 o 2 armas , pero 2 no va apoder tener 
+    unique_ptr<Armas> arma1= nullptr; //se guarda solo una
 
     if(cant_armas>=1){
     int indice = rand() % 9;// elige entre todas las armas
     arma1= PersonajeFactory:: Creacion_Arma(static_cast<tipoArma> (indice)); //castea el arma y le indica que objeto usar
  }
  
-    auto personaje= PersonajeFactory:: Creacion_Personaje_Arma(tipo, {arma1, nullptr}); //se guarda el personaje y su arma 
-    return personaje;
+    return PersonajeFactory:: Creacion_Personaje_Arma(tipo, {std::move(arma1), nullptr}); //se guarda el personaje y su arma 
 }
 
 string movimiento_string(movimiento mov){ //paso a string  los enum
@@ -46,7 +45,7 @@ movimiento Ataque_aleatorio(){
 
 }
 
-string getNombreArma(shared_ptr<Personajes> p){
-    auto armas= p->getArmas();
+string getNombreArma(const unique_ptr<Personajes>& p){
+    const auto& armas= p->getArmas();
     return armas.first ? armas.first->getNombre() : "sin arma";
 }

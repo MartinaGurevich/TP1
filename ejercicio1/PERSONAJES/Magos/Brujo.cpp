@@ -1,7 +1,7 @@
 #include "Brujo.hpp"
 
-Brujo:: Brujo(string nombre, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS): 
-Magos (nombre,10, ARMAS), //nombre, nuvel y arma
+Brujo:: Brujo(string nombre, pair<unique_ptr<Armas>, unique_ptr<Armas>> ARMAS): 
+Magos (nombre,10, std:: move(ARMAS)), //nombre, nuvel y arma
 brujeria(10){}
 
 void Brujo:: Escudomagico(){

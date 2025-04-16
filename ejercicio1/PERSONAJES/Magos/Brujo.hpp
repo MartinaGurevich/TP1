@@ -6,7 +6,7 @@ class Brujo : public Magos
 private:
     int brujeria; //actua para reducir daño
 public:
-    Brujo(string nombre,  pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS);
+    Brujo(string nombre,  pair<unique_ptr<Armas>, unique_ptr<Armas>> ARMAS);
 
     void Escudomagico() override; 
     void brujeriaMagica();

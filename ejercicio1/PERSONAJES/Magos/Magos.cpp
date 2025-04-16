@@ -1,23 +1,23 @@
 #include "Magos.hpp"
 
-Magos:: Magos(string nombre,int nivel, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS):
-nombre(nombre), vida(100), ARMAS(ARMAS), daño_obtenido(0), nivel(nivel) {}
+Magos:: Magos(string nombre,int nivel, pair<unique_ptr<Armas>, unique_ptr<Armas>> ARMAS):
+nombre(nombre), vida(100), ARMAS(std::move(ARMAS)), daño_obtenido(0), nivel(nivel) {}
 
 //SETTERS
 void Magos:: setDaño_obtenido(int daño){ 
     daño_obtenido = daño;  //modifico el daño que obtuve
 }
 
-void Magos:: setArma_1(shared_ptr<Armas> arma){
-    ARMAS.first= arma;
+void Magos:: setArma_1(unique_ptr<Armas> arma){
+    ARMAS.first= std:: move(arma);
 }
 
-void Magos:: setArma_2(shared_ptr<Armas> arma){
-    ARMAS.second= arma;
+void Magos:: setArma_2(unique_ptr<Armas> arma){
+    ARMAS.second= std:: move(arma);
 }
 
 //metodos de la interfaz
-pair<shared_ptr<Armas>,shared_ptr<Armas>> Magos:: getArmas() const{ //le doy la posibilidad a todos los persoajes de tener dos armas
+const pair<unique_ptr<Armas>,unique_ptr<Armas>>& Magos::getArmas() const{ //le doy la posibilidad a todos los persoajes de tener dos armas
     return ARMAS;
 } 
 
@@ -64,7 +64,7 @@ void Magos::Recibir_daño(){//me saca vida
         cout<<nombre<<" -->  recibe  "<< daño_obtenido<< " puntos de daño"<<endl;
         if (vida < 0) vida=0;
         curar();
-        cout<<nombre<<"tiene  "<< vida<< " puntos de vida restante"<<endl;
+        cout<<nombre<<" tiene  "<< vida<< " puntos de vida restante"<<endl;
 
 }
 

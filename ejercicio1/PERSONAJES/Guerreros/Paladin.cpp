@@ -1,7 +1,7 @@
 #include "Paladin.hpp"
 
-Paladin:: Paladin(string nombre, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS): 
-Guerreros (nombre,15, ARMAS), //nombre, nuvel y arma
+Paladin:: Paladin(string nombre, pair<unique_ptr<Armas>, unique_ptr<Armas>> ARMAS): 
+Guerreros (nombre,15, std:: move(ARMAS)), //nombre, nuvel y arma
 Luz_purificadora(15){}
 
 void Paladin:: ArmaduraEspecial(){

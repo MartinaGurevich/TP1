@@ -3,9 +3,9 @@
 int main(){
     srand(time(nullptr));  //comienza el conteo para el rand
     
-    //creo j1 y j2;
-    shared_ptr<Personajes> jugador1;
-    shared_ptr<Personajes> jugador2; //rival
+    //creo j1 y j2.  USO UNIQUE PARA REPRESENTAR COMPOSICION.
+    unique_ptr<Personajes> jugador1;
+    unique_ptr<Personajes> jugador2; //rival
 
     //vida de los jugadores
     int HP_j1= 100;
@@ -35,7 +35,7 @@ int main(){
             cin >> eleccion_personaje;
         }
 
-
+        //eleccion arma
         int eleccion_arma;
         cout<<"======= ELIJA UN ARMA ====" << endl;
         cout<<"0- Baston "<< endl;
@@ -55,14 +55,16 @@ int main(){
             cin>> eleccion_arma;
         }
         
+        //CREAR JUGADOR 1
 
+        unique_ptr<Armas> arma_j1= PersonajeFactory:: Creacion_Arma(static_cast<tipoArma> (eleccion_arma));
         jugador1 = PersonajeFactory:: Creacion_Personaje_Arma(
             static_cast<Tipopersonaje>(eleccion_personaje),
-            {PersonajeFactory:: Creacion_Arma(static_cast<tipoArma> (eleccion_arma)), nullptr} );
+        {std:: move(arma_j1), nullptr} 
+    );
 
+        //CREAR JUGADOR 2 ALEATORIO
         jugador2 = rival_Aleatorio(); //arma y personaje aleatorio
-
-
 
         //golpe de jugaror1
         int golpe;
@@ -127,4 +129,6 @@ int main(){
         cout<<"La vida del jugador 2 llego a su fin..."<<endl;
         cout<<"--> GANADOR DE LA BATALLA: JUGADOR 1 "<<endl;
     }
+
+    return 0;
 }

@@ -22,10 +22,10 @@ int main(){
 //PRUEBO ARMAS PRIMERO
 
     //CREO ESPADA y LIBRO
-    shared_ptr<Armas> libro = make_shared<LibrodeHechizos>("Libro de Hechizos", "Mago", 2023);
-    shared_ptr<Armas> espada = make_shared<Espada>("Espada", "Caballero", 2005, 10);
+    unique_ptr<Armas> libro = make_unique<LibrodeHechizos>("Libro de Hechizos", "Mago", 2023);
+    unique_ptr<Armas> espada = make_unique<Espada>("Espada", "Caballero", 2005, 10);
 
-    //muestros datos
+    //muestros datos (antes de  mover)
     cout<<" \n ========= DATOS DE LA ESPADA =========="<<endl;
     cout<<"--> NOMBRE: "<<espada->getNombre()<<endl;
     cout<<"--> TIPO DE ARMA: "<<espada-> getTipodearma()<<endl;
@@ -43,7 +43,6 @@ int main(){
     cout<<"--> MODELO: "<<libro -> getModelo()<<endl;
     cout<<"--> PESO: "<<libro -> getpeso()<<endl;
     cout<<"--> DAÑO BASE: "<<libro -> getDaño()<<endl;
-    //cout<<"--> COMPATIBILIDAD: "<<Milibro.personaje_compatible("Mago")<<endl;
     cout<<endl;
 
 //PRUEBA DE PERSONAJES PORTANDO ARMAS
@@ -55,9 +54,13 @@ int main(){
     cout<<"Compatibilidad para que un mago use espada: \n";
     dynamic_cast<Espada*>(espada.get())->compatible("Mago");
 
-    //creo personajes
-    Brujo brujo("Juan", {libro, espada}); //mago con libro y espada
-    Gladiador gladiador ("Luis", {espada, nullptr}); //gladiador solo con espada
+    //creo personajes, MUEVO LAS ARMAS A LOS PERSONAJES
+    Brujo brujo("Juan", {std:: move(libro), std:: move(espada)}); //mago con libro y espada
+    
+    cout<<"\n Creacion de espada2..."<< endl;
+
+    unique_ptr<Armas> espada2 = make_unique<Espada>("Espada2", "Caballero", 2005, 10);
+    Gladiador gladiador ("Luis", {std:: move(espada2), nullptr}); //gladiador solo con espada
 
     //muestro info
     cout<<"\n ============= INFORMACION PERSONAJES =============="<<endl;
@@ -68,20 +71,27 @@ int main(){
     //pruebo individualmente sus armas
     cout<<"\n =============  EL BRUJO LANZA UN HECHIZO ESPECIFICO: =============="<<endl;
     auto libro_ptr= dynamic_cast<LibrodeHechizos*>(brujo.getArmas().first.get());
-
-    libro_ptr-> cambiarHechizo("Explosion");
-    libro_ptr-> lanzarHechizo();
-
-    cout<<" \n ============== EL GLADIADOR USA SU ESPADA (y la desafila): =============="<<endl;
-    auto espada_ptr= dynamic_cast<Espada*>(gladiador.getArmas().first.get());
-
-    for(int i =0; i<3; i++){
-        espada_ptr->golpe();
-        cout<< "Filo restante de la espada: "<< espada_ptr->getFilo()<<endl; //muestra cuanto filo le queda
+    if(libro_ptr){
+        libro_ptr-> cambiarHechizo("Explosion");
+        libro_ptr-> lanzarHechizo(); 
     }
 
+   
+
+    cout<<" \n ============== EL GLADIADOR USA SU ESPADA (y la desafila): =============="<<endl;
+    auto espada_ptr= dynamic_cast<Espada*>(gladiador.getArmas().first.get()); //espada 2, la del gladiador
+    if (espada_ptr){ 
+        for(int i =0; i<3; i++){
+        espada_ptr->golpe();
+        cout<< "Filo restante de la espada: "<< espada_ptr->getFilo()<<endl; //muestra cuanto filo le queda
+    }    
+    
     cout<<"\n ==============ESPADA del galdiador con su golpe especial (aumenta su longitud) ============== \n";
     espada_ptr->golpeEspecial();
+}
+   
+
+
 
     //SIMULACION DE COMBATE
     cout<<"\n ============== COMBATE: gladiador ataca a brujo ==============\n";

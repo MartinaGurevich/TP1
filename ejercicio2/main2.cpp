@@ -4,7 +4,7 @@
 int main(){
     srand(time(nullptr)); //cominezo de rand
 
-    vector<shared_ptr<Personajes>> personajes;
+    vector<unique_ptr<Personajes>> personajes;
 
     //creo magos
     vector<Tipopersonaje> magos= Magos_aleatorios();
@@ -12,8 +12,8 @@ int main(){
 
         int cant_armas= Armas_aleatorias();
 
-        shared_ptr<Armas> arma1= nullptr;
-        shared_ptr<Armas> arma2= nullptr;
+        unique_ptr<Armas> arma1= nullptr;
+        unique_ptr<Armas> arma2= nullptr;
 
         if(cant_armas>=1){
             int indice = rand() % 9;// elige entre todas las armas
@@ -24,8 +24,11 @@ int main(){
             arma2= PersonajeFactory:: Creacion_Arma(static_cast<tipoArma> (indice)); //catea el arma y le indica que objeto usar
         }
 
-        auto personaje= PersonajeFactory:: Creacion_Personaje_Arma(Tipo_mago, {arma1, arma2});
-        personajes.push_back(personaje); //me guardo el ersonaje con sus armas
+        auto personaje= PersonajeFactory:: Creacion_Personaje_Arma(Tipo_mago, {std::move(arma1), std::move(arma2)});
+        if(personaje){ 
+            personajes.push_back(std::move(personaje)); //me guardo personaje con sus armas
+        }
+
     }
        
     
@@ -35,8 +38,8 @@ int main(){
     
         int cant_armas= Armas_aleatorias();
 
-        shared_ptr<Armas> arma1= nullptr;
-        shared_ptr<Armas> arma2= nullptr;
+        unique_ptr<Armas> arma1= nullptr;
+        unique_ptr<Armas> arma2= nullptr;
 
         if(cant_armas>=1){
             int indice = rand() % 9;// elige entre todas las armas
@@ -47,11 +50,11 @@ int main(){
             arma2= PersonajeFactory:: Creacion_Arma(static_cast<tipoArma> (indice)); //catea el arma y le indica que objeto usar
         }
 
-        auto personaje= PersonajeFactory:: Creacion_Personaje_Arma(Tipo_guerrero, {arma1, arma2});
+        auto personaje= PersonajeFactory:: Creacion_Personaje_Arma(Tipo_guerrero, {std::move(arma1), std::move(arma2)});
         if(personaje){
-            personajes.push_back(personaje); 
+            personajes.push_back(std::move(personaje)); 
         }else{
-            cout<<"NULLPTR DE PERSONAJE"<<endl;
+            cout<<"NULLPTR DE PERSONAJE"<<endl; //
         }
     }
     //muestro personajes con arams 
@@ -64,7 +67,7 @@ int main(){
         
         cout<< "Personaje : "<< p-> getNombre()<<endl;
         
-        auto armas = p->getArmas(); //accedo a armas del peresonaje
+        auto& armas = p->getArmas(); //devuelve referencia const al par de armas
 
         if (armas.first || armas.second){
             cout<<"--> ARMAS: \n";  

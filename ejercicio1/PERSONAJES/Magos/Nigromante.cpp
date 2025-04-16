@@ -1,7 +1,7 @@
 #include "Nigromante.hpp"
 
-Nigromante:: Nigromante(string nombre, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS): //ver lo de nvel 
-Magos (nombre,50, ARMAS),
+Nigromante:: Nigromante(string nombre, pair<unique_ptr<Armas>,unique_ptr<Armas>> ARMAS): //ver lo de nvel 
+Magos (nombre,50, std:: move(ARMAS)),
 nigromacia(30){}
 
 void Nigromante:: Escudomagico(){

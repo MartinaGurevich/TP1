@@ -6,7 +6,7 @@ class Barbaro : public Guerreros
 private:
     int furia; //actua para reducir daño
 public:
-    Barbaro(string nombre,  pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS);
+    Barbaro(string nombre,  pair<unique_ptr<Armas>, unique_ptr<Armas>> ARMAS);
 
     void ArmaduraEspecial() override;
     void usar_furia(); 

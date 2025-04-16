@@ -1,7 +1,7 @@
 #include "Conjurador.hpp"
 
-Conjurador:: Conjurador(string nombre, pair<shared_ptr<Armas>, shared_ptr<Armas>> ARMAS): 
-Magos (nombre,25, ARMAS),
+Conjurador:: Conjurador(string nombre, pair<unique_ptr<Armas>, unique_ptr<Armas>> ARMAS): 
+Magos (nombre,25, std:: move(ARMAS)),
 conjuro(30){}
 
 void Conjurador:: Escudomagico(){
