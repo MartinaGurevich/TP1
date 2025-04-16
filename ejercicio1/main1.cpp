@@ -60,6 +60,7 @@ int main(){
     cout<<"\n Creacion de espada2..."<< endl;
 
     unique_ptr<Armas> espada2 = make_unique<Espada>("Espada2", "Caballero", 2005, 10);
+    
     Gladiador gladiador ("Luis", {std:: move(espada2), nullptr}); //gladiador solo con espada
 
     //muestro info
